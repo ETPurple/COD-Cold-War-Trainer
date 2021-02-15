@@ -1,7 +1,20 @@
 # COD Cold War Trainer
- COD cold war zombies trainer
- 
- 
+Call of duty: Cold War Zombies Trainer.
+
+##Features
+- God Mode
+- Inifite Ammo
+- Player Speed
+- Change Weapon
+- XP Modifier
+- TP2C ( teleport zombies to cursor )
+- InstaKill
+- Always Crit ( Coming Soon ) ( information is available on UC.net )
+- 1 Shot Gold Camos ( Coming soon! ) ( information was available on UC.net ( I have a local copy of the reverse ))
+
+- Full authorization system using Auth.GG
+
+
 # I AM NOT RESPONSIBLE FOR ANY DAMAGES CAUSED TO YOUR ACCOUNT WITH THIS TOOL.
 
 Please note that this tool is a public release and has been detected. This is for the purpose of learning and understanding how to reverse and work with the COD Quake Based Engine. You will 100% be banned if you use this tool. This tool is not UP-TO-DATE.
