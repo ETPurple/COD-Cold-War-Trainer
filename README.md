@@ -4,7 +4,7 @@
  
 # I AM NOT RESPONSIBLE FOR ANY DAMAGES CAUSED TO YOUR ACCOUNT WITH THIS TOOL.
 
-Please note that this tool is a public release and has been detected. This is for the purpose of learning and understanding how to reverse and work with the Quake Based Engine. You will 100% be banned if you use this tool. This tool is not UP-TO-DATE.
+Please note that this tool is a public release and has been detected. This is for the purpose of learning and understanding how to reverse and work with the COD Quake Based Engine. You will 100% be banned if you use this tool. This tool is not UP-TO-DATE.
 
 # COMPILING & UPDATING
 You will need to obtain the latest offsets that are required for this cheat to work. You can find them on UC.net Go to the Offsets.cs file and update the values accordingly. Names are preserved as they are released on UC.net. This should allow for a quick update.
