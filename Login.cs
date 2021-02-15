@@ -15,14 +15,7 @@ namespace ___
     {
         public Login()
         {
-            OPSEC.ScanAndKill();
-
-            if (OPSEC.IsDebuggerActive() == 1)
-            {
-                Environment.FailFast("");
-            }
             InitializeComponent();
-
         }
 
         private void button1_Click(object sender, EventArgs e)

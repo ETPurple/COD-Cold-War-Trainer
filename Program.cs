@@ -15,16 +15,9 @@ namespace ___
         [STAThread]
         static void Main()
         {
-            //check for debugging applications on start.
-            OPSEC.ScanAndKill();
-
-            if (OPSEC.IsDebuggerActive() == 1)
-            {
-                Environment.FailFast("");
-            }
 
             //Registered Application with Auth.GG
-            util.Auth.OnProgramStart.Initialize("N}89WA*azkbP9kA8", "53740", "WWeQcDQXk4pfJXXWJF1sY0QKX5oZQRi6fuy", "1.0");
+            util.Auth.OnProgramStart.Initialize("", "", "", "");
 
             //Display Login Form
             Application.EnableVisualStyles();
