@@ -9,7 +9,7 @@ Please note that this tool is a public release and has been detected. This is fo
 # COMPILING & UPDATING
 You will need to obtain the latest offsets that are required for this cheat to work. You can find them on UC.net Go to the Offsets.cs file and update the values accordingly. Names are preserved as they are released on UC.net. This should allow for a quick update.
 
-### Credits & Contact
+# Credits & Contact
 
 - Purplez ( discord server): https://discord.gg/vj3KXWrVzp ( please ask for the discord role XXX ( this will provide access to the 'hacking' channel ).
 - OfficialRenny ( UC.net ) - Source base
