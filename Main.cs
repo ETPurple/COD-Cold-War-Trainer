@@ -59,14 +59,7 @@ namespace ___
             {
                 try
                 {
-                    //Soon as Main.cs starts lets check for them debuggers.
-                   OPSEC.ScanAndKill();
 
-                    //2nd Debugger checker.
-                    if (OPSEC.IsDebuggerActive() == 1)
-                    {
-                        Environment.FailFast("");
-                    }
                     // if trainer isnt enabled, do nothing yet
                     if (!trainerEnabled) continue;
 
@@ -98,30 +91,30 @@ namespace ___
                     }
 
                     // opens the process or something, not 100% still learning all this terminology
-                    util.Offsets.hProc =  util.Game.OpenProcess( util.Game.ProcessAccessFlags.All, false, util.Offsets.gameProc.Id);
+                    util.Offsets.hProc = util.Game.OpenProcess(util.Game.ProcessAccessFlags.All, false, util.Offsets.gameProc.Id);
 
                     // if the base address isn't uptodate, update it
-                    if (util.Offsets.baseAddress !=  util.Game.GetModuleBaseAddress(util.Offsets.gameProc, "BlackOpsColdWar.exe")) util.Offsets.baseAddress =  util.Game.GetModuleBaseAddress(util.Offsets.gameProc, "BlackOpsColdWar.exe");
+                    if (util.Offsets.baseAddress != util.Game.GetModuleBaseAddress(util.Offsets.gameProc, "BlackOpsColdWar.exe")) util.Offsets.baseAddress = util.Game.GetModuleBaseAddress(util.Offsets.gameProc, "BlackOpsColdWar.exe");
 
                     // cache the base addresses for these various pointers
-                    if (util.Offsets.PlayerCompPtr !=  util.Game.FindDMAAddy(util.Offsets.hProc, (IntPtr)(util.Offsets.baseAddress.ToInt64() + util.Offsets.PlayerBase.ToInt64()), new int[] { 0 }))
-                        util.Offsets.PlayerCompPtr =  util.Game.FindDMAAddy(util.Offsets.hProc, (IntPtr)(util.Offsets.baseAddress.ToInt64() + util.Offsets.PlayerBase.ToInt64()), new int[] { 0 });
+                    if (util.Offsets.PlayerCompPtr != util.Game.FindDMAAddy(util.Offsets.hProc, (IntPtr)(util.Offsets.baseAddress.ToInt64() + util.Offsets.PlayerBase.ToInt64()), new int[] { 0 }))
+                        util.Offsets.PlayerCompPtr = util.Game.FindDMAAddy(util.Offsets.hProc, (IntPtr)(util.Offsets.baseAddress.ToInt64() + util.Offsets.PlayerBase.ToInt64()), new int[] { 0 });
 
                     if (util.Offsets.PlayerPedPtr != util.Game.FindDMAAddy(util.Offsets.hProc, (IntPtr)(util.Offsets.baseAddress.ToInt64() + util.Offsets.PlayerBase.ToInt64() + 0x8), new int[] { 0 }))
-                        util.Offsets. PlayerPedPtr =  util.Game.FindDMAAddy(util.Offsets.hProc, (IntPtr)(util.Offsets.baseAddress.ToInt64() + util.Offsets.PlayerBase.ToInt64() + 0x8), new int[] { 0 });
+                        util.Offsets.PlayerPedPtr = util.Game.FindDMAAddy(util.Offsets.hProc, (IntPtr)(util.Offsets.baseAddress.ToInt64() + util.Offsets.PlayerBase.ToInt64() + 0x8), new int[] { 0 });
 
-                    if (util.Offsets.ZMGlobalBase !=  util.Game.FindDMAAddy(util.Offsets.hProc, (IntPtr)(util.Offsets.baseAddress.ToInt64() + util.Offsets.PlayerBase.ToInt64() + 0x60), new int[] { 0 }))
-                        util.Offsets.ZMGlobalBase =  util.Game.FindDMAAddy(util.Offsets.hProc, (IntPtr)(util.Offsets.baseAddress.ToInt64() + util.Offsets.PlayerBase.ToInt64() + 0x60), new int[] { 0 });
+                    if (util.Offsets.ZMGlobalBase != util.Game.FindDMAAddy(util.Offsets.hProc, (IntPtr)(util.Offsets.baseAddress.ToInt64() + util.Offsets.PlayerBase.ToInt64() + 0x60), new int[] { 0 }))
+                        util.Offsets.ZMGlobalBase = util.Game.FindDMAAddy(util.Offsets.hProc, (IntPtr)(util.Offsets.baseAddress.ToInt64() + util.Offsets.PlayerBase.ToInt64() + 0x60), new int[] { 0 });
 
-                    if (util.Offsets.ZMBotBase !=  util.Game.FindDMAAddy(util.Offsets.hProc, (IntPtr)(util.Offsets.baseAddress.ToInt64() + util.Offsets.PlayerBase.ToInt64() + 0x68), new int[] { 0 }))
-                        util.Offsets.ZMBotBase =  util.Game.FindDMAAddy(util.Offsets.hProc, (IntPtr)(util.Offsets.baseAddress.ToInt64() + util.Offsets.PlayerBase.ToInt64()) + 0x68, new int[] { 0 });
+                    if (util.Offsets.ZMBotBase != util.Game.FindDMAAddy(util.Offsets.hProc, (IntPtr)(util.Offsets.baseAddress.ToInt64() + util.Offsets.PlayerBase.ToInt64() + 0x68), new int[] { 0 }))
+                        util.Offsets.ZMBotBase = util.Game.FindDMAAddy(util.Offsets.hProc, (IntPtr)(util.Offsets.baseAddress.ToInt64() + util.Offsets.PlayerBase.ToInt64()) + 0x68, new int[] { 0 });
 
-                    if (util.Offsets.ZMBotBase != (IntPtr)0x0 && util.Offsets.ZMBotBase != (IntPtr)0x68 && util.Offsets.ZMBotListBase !=  util.Game.FindDMAAddy(util.Offsets.hProc, util.Offsets.ZMBotBase + util.Offsets.ZM_Bot_List_Offset, new int[] { 0 }))
-                        util.Offsets.ZMBotListBase =  util.Game.FindDMAAddy(util.Offsets.hProc, util.Offsets.ZMBotBase + util.Offsets.ZM_Bot_List_Offset, new int[] { 0 });
+                    if (util.Offsets.ZMBotBase != (IntPtr)0x0 && util.Offsets.ZMBotBase != (IntPtr)0x68 && util.Offsets.ZMBotListBase != util.Game.FindDMAAddy(util.Offsets.hProc, util.Offsets.ZMBotBase + util.Offsets.ZM_Bot_List_Offset, new int[] { 0 }))
+                        util.Offsets.ZMBotListBase = util.Game.FindDMAAddy(util.Offsets.hProc, util.Offsets.ZMBotBase + util.Offsets.ZM_Bot_List_Offset, new int[] { 0 });
 
                     // create new byte array for player coordinates, reads them, and then sets the XYZ coordinates accordingly
                     byte[] playerCoords = new byte[12];
-                     util.Game.ReadProcessMemory(util.Offsets.hProc, util.Offsets.PlayerPedPtr + util.Offsets.PP_Coords, playerCoords, 12, out _);
+                    util.Game.ReadProcessMemory(util.Offsets.hProc, util.Offsets.PlayerPedPtr + util.Offsets.PP_Coords, playerCoords, 12, out _);
                     var origx = BitConverter.ToSingle(playerCoords, 0);
                     var origy = BitConverter.ToSingle(playerCoords, 4);
                     var origz = BitConverter.ToSingle(playerCoords, 8);
@@ -132,6 +125,17 @@ namespace ___
 
                     //if ingame ( we need to figure out how to determine if we're ingame or not.
                     label1.Text = "Zombies Left: " + util.IAPI.GetZombieCount();
+
+
+                    #region Update Player Names
+
+                    tabPage1.Text = IAPI.GetName(0);
+                    tabPage2.Text = IAPI.GetName(1);
+                    tabPage3.Text = IAPI.GetName(2);
+                    tabPage4.Text = IAPI.GetName(3);
+
+                    #endregion
+
 
                     #region Godmode
 
@@ -248,44 +252,44 @@ namespace ___
 
                     byte[] enemyPosBuffer = new byte[12];
 
+                    if (tpZombiesToCursor)
+                    {
+                        // gets current player position
+                        byte[] playerHeadingXY = new byte[4];
+                        byte[] playerHeadingZ = new byte[4];
+                        util.Game.ReadProcessMemory(Offsets.hProc, Offsets.PlayerPedPtr + Offsets.PP_Heading_XY, playerHeadingXY, 4, out _);
+                        util.Game.ReadProcessMemory(Offsets.hProc, Offsets.PlayerPedPtr + Offsets.PP_Heading_Z, playerHeadingZ, 4, out _);
+
+                        // some stack overflow magic to get the direction the player is facing and getting a position in front of the player
+                        var pitch = -ConvertToRadians(BitConverter.ToSingle(playerHeadingZ, 0));
+                        var yaw = ConvertToRadians(BitConverter.ToSingle(playerHeadingXY, 0));
+                        var x = Convert.ToSingle(Math.Cos(yaw) * Math.Cos(pitch));
+                        var y = Convert.ToSingle(Math.Sin(yaw) * Math.Cos(pitch));
+                        var z = Convert.ToSingle(Math.Sin(pitch));
+
+                        // im guessing just a straight up BitConverter.GetBytes could have worked for writing vector3s to memory instead of this kinda messy solution
+                        var newEnemyPos = updatedPlayerPos + (new Vector3(x, y, z) * zmTeleportDistance);
+
+                        Buffer.BlockCopy(BitConverter.GetBytes(newEnemyPos.X), 0, enemyPosBuffer, 0, 4);
+                        Buffer.BlockCopy(BitConverter.GetBytes(newEnemyPos.Y), 0, enemyPosBuffer, 4, 4);
+                        Buffer.BlockCopy(BitConverter.GetBytes(newEnemyPos.Z), 0, enemyPosBuffer, 8, 4);
+                    }
+
+                    for (int i = 0; i < 90; i++)
+                    {
+                        // if 1hp zombies is checked, set all zombie hp and max hp to 1
+                        if (zombiesInstaKill)
+                        {
+                            util.Game.WriteProcessMemory(Offsets.hProc, Offsets.ZMBotListBase + (Offsets.ZM_Bot_ArraySize_Offset * i) + Offsets.ZM_Bot_Health, 1, 4, out _);
+                            util.Game.WriteProcessMemory(Offsets.hProc, Offsets.ZMBotListBase + (Offsets.ZM_Bot_ArraySize_Offset * i) + Offsets.ZM_Bot_MaxHealth, 1, 4, out _);
+                        }
+
+                        // if tp zombies is checked, set their position to the position we got earlier
                         if (tpZombiesToCursor)
                         {
-                            // gets current player position
-                            byte[] playerHeadingXY = new byte[4];
-                            byte[] playerHeadingZ = new byte[4];
-                             util.Game.ReadProcessMemory(Offsets.hProc, Offsets.PlayerPedPtr + Offsets.PP_Heading_XY, playerHeadingXY, 4, out _);
-                             util.Game.ReadProcessMemory(Offsets.hProc, Offsets.PlayerPedPtr + Offsets.PP_Heading_Z, playerHeadingZ, 4, out _);
-
-                            // some stack overflow magic to get the direction the player is facing and getting a position in front of the player
-                            var pitch = -ConvertToRadians(BitConverter.ToSingle(playerHeadingZ, 0));
-                            var yaw = ConvertToRadians(BitConverter.ToSingle(playerHeadingXY, 0));
-                            var x = Convert.ToSingle(Math.Cos(yaw) * Math.Cos(pitch));
-                            var y = Convert.ToSingle(Math.Sin(yaw) * Math.Cos(pitch));
-                            var z = Convert.ToSingle(Math.Sin(pitch));
-
-                            // im guessing just a straight up BitConverter.GetBytes could have worked for writing vector3s to memory instead of this kinda messy solution
-                            var newEnemyPos = updatedPlayerPos + (new Vector3(x, y, z) * zmTeleportDistance);
-
-                            Buffer.BlockCopy(BitConverter.GetBytes(newEnemyPos.X), 0, enemyPosBuffer, 0, 4);
-                            Buffer.BlockCopy(BitConverter.GetBytes(newEnemyPos.Y), 0, enemyPosBuffer, 4, 4);
-                            Buffer.BlockCopy(BitConverter.GetBytes(newEnemyPos.Z), 0, enemyPosBuffer, 8, 4);
+                            util.Game.WriteProcessMemory(Offsets.hProc, Offsets.ZMBotListBase + (Offsets.ZM_Bot_ArraySize_Offset * i) + Offsets.ZM_Bot_Coords, enemyPosBuffer, 12, out _);
                         }
-
-                        for (int i = 0; i < 90; i++)
-                        {
-                            // if 1hp zombies is checked, set all zombie hp and max hp to 1
-                            if (zombiesInstaKill)
-                            {
-                                 util.Game.WriteProcessMemory(Offsets.hProc, Offsets.ZMBotListBase + (Offsets.ZM_Bot_ArraySize_Offset * i) + Offsets.ZM_Bot_Health, 1, 4, out _);
-                                 util.Game.WriteProcessMemory(Offsets.hProc, Offsets.ZMBotListBase + (Offsets.ZM_Bot_ArraySize_Offset * i) + Offsets.ZM_Bot_MaxHealth, 1, 4, out _);
-                            }
-
-                            // if tp zombies is checked, set their position to the position we got earlier
-                            if (tpZombiesToCursor)
-                            {
-                                 util.Game.WriteProcessMemory(Offsets.hProc, Offsets.ZMBotListBase + (Offsets.ZM_Bot_ArraySize_Offset * i) + Offsets.ZM_Bot_Coords, enemyPosBuffer, 12, out _);
-                            }
-                        }
+                    }
 
                     #endregion
 
@@ -311,8 +315,8 @@ namespace ___
                         byte[] tempBuffer2 = new byte[4];
                         Buffer.BlockCopy(BitConverter.GetBytes(xpModifier), 0, tempBuffer2, 0, 4);
 
-                         util.Game.WriteProcessMemory(Offsets.hProc, (IntPtr)(Offsets.baseAddress.ToInt64() + Offsets.ZMXPScaleBase.ToInt64()) + Offsets.XPGun_Offset, tempBuffer1, 4, out _);
-                         util.Game.WriteProcessMemory(Offsets.hProc, (IntPtr)(Offsets.baseAddress.ToInt64() + Offsets.ZMXPScaleBase.ToInt64()) + Offsets. XPUNK02_Offset, tempBuffer2, 4, out _);
+                        util.Game.WriteProcessMemory(Offsets.hProc, (IntPtr)(Offsets.baseAddress.ToInt64() + Offsets.ZMXPScaleBase.ToInt64()) + Offsets.XPGun_Offset, tempBuffer1, 4, out _);
+                        util.Game.WriteProcessMemory(Offsets.hProc, (IntPtr)(Offsets.baseAddress.ToInt64() + Offsets.ZMXPScaleBase.ToInt64()) + Offsets.XPUNK02_Offset, tempBuffer2, 4, out _);
                     }
                     #endregion
 
@@ -330,11 +334,11 @@ namespace ___
         }
         private void ComboBox1_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-           // string key = ((KeyValuePair<string, string>)comboBox1.SelectedItem).Key;
-           // string value = ((KeyValuePair<string, string>)comboBox1.SelectedItem).Value;
-          //  var test = Int64.Parse(value);
+            // string key = ((KeyValuePair<string, string>)comboBox1.SelectedItem).Key;
+            // string value = ((KeyValuePair<string, string>)comboBox1.SelectedItem).Value;
+            //  var test = Int64.Parse(value);
 
-           // util.Game.WriteProcessMemory(Offsets.hProc, Offsets.PlayerCompPtr + ( Offsets.PC_ArraySize_Offset * 1 ) + Offsets.PC_SetWeaponID, test, 1, out _);
+            // util.Game.WriteProcessMemory(Offsets.hProc, Offsets.PlayerCompPtr + ( Offsets.PC_ArraySize_Offset * 1 ) + Offsets.PC_SetWeaponID, test, 1, out _);
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -345,15 +349,10 @@ namespace ___
 
         public Main()
         {
-            OPSEC.ScanAndKill();
 
-            if (OPSEC.IsDebuggerActive() == 1)
-            {
-                Environment.FailFast("");
-            }
             InitializeComponent();
-            this.Text = OPSEC.RandomString(15);
-            this.Update();
+            //this.Text = OPSEC.RandomString(15);
+            // this.Update();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -542,11 +541,12 @@ namespace ___
         private void button20_Click(object sender, EventArgs e)
         {
             globalXpBoost = !globalXpBoost;
-            if ( globalXpBoost)
+            if (globalXpBoost)
             {
                 button20.ForeColor = Color.Green;
                 button20.Text = "XX Boost - On";
-            }else
+            }
+            else
             {
                 button20.ForeColor = Color.Red;
                 button20.Text = "XP Boost - Off";
@@ -556,7 +556,7 @@ namespace ___
         private void button2_Click_1(object sender, EventArgs e)
         {
             zombiesInstaKill = !zombiesInstaKill;
-            if ( zombiesInstaKill)
+            if (zombiesInstaKill)
             {
                 button2.ForeColor = Color.Green;
                 button2.Text = "Insta Kill - On";
@@ -784,47 +784,17 @@ namespace ___
 
         private void button21_Click(object sender, EventArgs e)
         {
+           Vector3 MyPos = IAPI.GetPlayerPos();
+            MessageBox.Show(MyPos.ToString());
+        }
 
-        }
-        private void p1camo_Tick(object sender, EventArgs e)
+        private void button26_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < address.camoarme1.Length; i++)
-            {
-                this.m.WriteInt16(address.camoarme1[i], 3100);
-            }
-            for (int j = 0; j < address.camoarme2.Length; j++)
-            {
-                this.m.WriteInt16(address.camoarme2[j], 3100);
-            }
-            for (int k = 0; k < address.camoarme3.Length; k++)
-            {
-                this.m.WriteInt16(address.camoarme3[k], 3100);
-            }
-            for (int l = 0; l < address.camoarme4.Length; l++)
-            {
-                this.m.WriteByte(address.camoarme4[l], 100);
-            }
-            for (int m = 0; m < address.camoarme5.Length; m++)
-            {
-                this.m.WriteByte(address.camoarme5[m], 100);
-            }
-            for (int n = 0; n < address.camoarme6.Length; n++)
-            {
-                this.m.WriteByte(address.camoarme6[n], 100);
-            }
-            for (int num = 0; num < address.camoarme7.Length; num++)
-            {
-                this.m.WriteByte(address.camoarme7[num], 100);
-            }
-            for (int num2 = 0; num2 < address.camoarmegoldall.Length; num2++)
-            {
-                this.m.WriteByte(address.camoarmegoldall[num2], 100);
-            }
-            for (int num3 = 0; num3 < address.camoarmegoldall2.Length; num3++)
-            {
-                this.m.WriteByte(address.camoarmegoldall2[num3], 100);
-            }
-            p1camo.Stop();
+            Vector3 test = IAPI.GetPlayerPos();
+            MessageBox.Show(string.Format("X: {0}, Y: {1}, Z: {2}", test.X.ToString(), test.Y.ToString(), test.Z.ToString())); ;
+
+            int test2 = IAPI.GetHP(0);
+            MessageBox.Show(string.Format("HP: {0}", test2.ToString()));
         }
-        }
+    }
 }

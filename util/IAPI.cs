@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,70 +9,147 @@ namespace ___.util
 {
     class IAPI
     {
-        //client ID's max 4 and starts at 0 ( 0 1 2 3 )
+        /// <summary>
+        /// Player ID's ( Client ID starts at 0 and ends at 3 ( 0 1 2 3 ) 
+        /// </summary
         public static int playerOne = 0;
         public static int playerTwo = 1;
         public static int playerThree = 2;
         public static int playerFour = 3;
 
 
-        //Sets the players current amount of money ( put in a loop ) 
+        /// <summary>
+        /// Sets players current points value ( put in a loop :) )
+        /// </summary>
+        /// <param name="clientID"></param>
+        /// <param name="moneyamount"></param>
         public static void SetMoney(int clientID, int moneyamount)
         {
             byte[] _PlayerHP = new byte[16];
-            util.Game.WriteProcessMemory(util.Offsets.hProc, util.Offsets.PlayerCompPtr + (util.Offsets.PC_ArraySize_Offset * clientID) + util.Offsets.PC_Points, moneyamount, 8, out _);
+            Game.WriteProcessMemory(Offsets.hProc, Offsets.PlayerCompPtr + (Offsets.PC_ArraySize_Offset * clientID) + Offsets.PC_Points, moneyamount, 8, out _);
         }
 
-        //Returns the players current amount of money
+        /// <summary>
+        /// Returns the players current amount of points
+        /// </summary>
+        /// <param name="clientID"></param>
+        /// <returns></returns>
         public static int GetMoney(int clientID)
         {
             byte[] _currentmoney = new byte[8];
-            util.Game.ReadProcessMemory(util.Offsets.hProc, util.Offsets.PlayerCompPtr + (util.Offsets.PC_ArraySize_Offset * clientID) + util.Offsets.PC_Points, _currentmoney, 8, out _);
+            Game.ReadProcessMemory(Offsets.hProc, Offsets.PlayerCompPtr + (Offsets.PC_ArraySize_Offset * clientID) + Offsets.PC_Points, _currentmoney, 8, out _);
             return Convert.ToInt32(_currentmoney);
         }
 
-        //Returns the players name
+        /// <summary>
+        /// Returns the players name
+        /// </summary>
+        /// <param name="clientID"></param>
+        /// <returns></returns>
         public static string GetName(int clientID)
         {
             byte[] _playerName = new byte[16];
-            util.Game.ReadProcessMemory(util.Offsets.hProc, util.Offsets.PlayerCompPtr + (util.Offsets.PC_ArraySize_Offset * clientID) + util.Offsets.PC_Name, _playerName, 16, out _);
+            Game.ReadProcessMemory(Offsets.hProc, Offsets.PlayerCompPtr + (Offsets.PC_ArraySize_Offset * clientID) + Offsets.PC_Name, _playerName, 16, out _);
             return Encoding.Default.GetString(_playerName);
         }
 
-        //Returns the number of zombies alive
+        /// <summary>
+        /// Returns the number of zombies left alive
+        /// </summary>
+        /// <returns></returns>
         public static int GetZombieCount()
         {
             byte[] _zombieCount = new byte[4];
-            util.Game.ReadProcessMemory(util.Offsets.hProc, util.Offsets.ZMGlobalBase + util.Offsets.ZM_Global_ZMLeftCount, _zombieCount, 4, out _);
+            Game.ReadProcessMemory(Offsets.hProc, Offsets.ZMGlobalBase + Offsets.ZM_Global_ZMLeftCount, _zombieCount, 4, out _);
             return BitConverter.ToInt32(_zombieCount, 0);
         }
         
 
-        //Freezes the players ammo values to simulate "infinite ammo"
-        public static void FreezeAmmo(int clientID)
+        /// <summary>
+        /// Sets the players ammo to the specified amount
+        /// </summary>
+        /// <param name="clientID"></param>
+        /// <param name="ammoCount"></param>
+        public static void FreezeAmmo(int clientID, int ammoCount)
         {
             for (int i = 1; i < 6; i++)
             {
-                util.Game.WriteProcessMemory(util.Offsets.hProc, util.Offsets.PlayerCompPtr + (util.Offsets.PC_ArraySize_Offset * clientID ) + util.Offsets.PC_Ammo + (i * 0x4), 20, 4, out _);
+                Game.WriteProcessMemory(Offsets.hProc, Offsets.PlayerCompPtr + (Offsets.PC_ArraySize_Offset * clientID ) + Offsets.PC_Ammo + (i * 0x4), ammoCount, 4, out _);
             }
         }
 
-        //Turns Godmode On for the player
+        /// <summary>
+        /// Enables invicibility for the player
+        /// </summary>
+        /// <param name="clientID"></param>
         public static void GodModeOn(int clientID)
         {
-            util.Game.WriteProcessMemory(util.Offsets.hProc, util.Offsets.PlayerCompPtr + (util.Offsets.PC_ArraySize_Offset * clientID ) +  util.Offsets.PC_GodMode, 0xA0, 1, out _);
+            Game.WriteProcessMemory(Offsets.hProc, Offsets.PlayerCompPtr + (Offsets.PC_ArraySize_Offset * clientID ) +  Offsets.PC_GodMode, 0xA0, 1, out _);
         }
         
-        //Turns Godmode Off for the player
+        /// <summary>
+        /// Disables invicibility for the player
+        /// </summary>
+        /// <param name="clientID"></param>
         public static void GodModeOff(int clientID)
         {
-            util.Game.WriteProcessMemory(util.Offsets.hProc, util.Offsets.PlayerCompPtr + (util.Offsets.PC_ArraySize_Offset * clientID) + util.Offsets.PC_GodMode, 0x20, 1, out _);
+            Game.WriteProcessMemory(Offsets.hProc, Offsets.PlayerCompPtr + (Offsets.PC_ArraySize_Offset * clientID) + Offsets.PC_GodMode, 0x20, 1, out _);
         }
 
-        //Sets the players current speed.
+        /// <summary>
+        /// Sets the players movement speed
+        /// </summary>
+        /// <param name="clientID"></param>
+        /// <param name="playerSpeed"></param>
         public static void SetSpeed(int clientID, int playerSpeed)
         {
-            util.Game.WriteProcessMemory(util.Offsets.hProc, util.Offsets.PlayerCompPtr + (util.Offsets.PC_ArraySize_Offset * clientID ) + util.Offsets.PC_RunSpeed, Convert.ToSingle(playerSpeed), 4, out _);
+            Game.WriteProcessMemory(Offsets.hProc, Offsets.PlayerCompPtr + (Offsets.PC_ArraySize_Offset * clientID ) + Offsets.PC_RunSpeed, Convert.ToSingle(playerSpeed), 4, out _);
+        }
+
+
+        /// <summary>
+        /// Returns the players Position in a vector3
+        /// </summary>
+        /// <returns></returns>
+        public static Vector3 GetPlayerPos()
+        {
+            // create new byte array for player coordinates, reads them, and then sets the XYZ coordinates accordingly
+            byte[] playerCoords = new byte[12];
+            Game.ReadProcessMemory(Offsets.hProc, Offsets.PlayerPedPtr + Offsets.PP_Coords, playerCoords, 12, out _);
+            var origx = BitConverter.ToSingle(playerCoords, 0);
+            var origy = BitConverter.ToSingle(playerCoords, 4);
+            var origz = BitConverter.ToSingle(playerCoords, 8);
+            // updates the current playerposition with a Vector3 created from the xyz coordinates
+
+            //Math.Round(val,2) round to the 2nd decimal place
+            var POS = new Vector3((float)Math.Round(origx, 2), (float)Math.Round(origy, 2), (float)Math.Round(origz, 2));
+            return POS;
+        }
+
+        /// <summary>
+        /// Returns the specific players HP
+        /// </summary>
+        /// <param name="clientID"></param>
+        /// <returns></returns>
+        public static int GetHP(int clientID)
+        {
+            byte[] playerHealth = new byte[4];
+            Game.ReadProcessMemory(Offsets.hProc, Offsets.PlayerPedPtr + (Offsets.PC_ArraySize_Offset * clientID) + Offsets.PP_Health, playerHealth, 4, out _);
+            return BitConverter.ToInt32(playerHealth, 0);
+        }
+
+
+        /// <summary>
+        /// Returns the given players Ammo per specified weapon *1-5* ( 1 2 3 4 5 )
+        /// </summary>
+        /// <param name="clientID"></param>
+        /// <param name="weaponSlot"></param>
+        /// <returns></returns>
+        public static int GetAmmo(int clientID, int weaponSlot)
+        {
+            byte[] playerAmmo = new byte[4];
+            Game.WriteProcessMemory(Offsets.hProc, Offsets.PlayerCompPtr + (Offsets.PC_ArraySize_Offset * clientID) + Offsets.PC_Ammo + (weaponSlot * 0x4), 20, 4, out _);
+            return BitConverter.ToInt32(playerAmmo, 0);
         }
     }
 }

@@ -17,12 +17,12 @@ namespace ___
         {
 
             //Registered Application with Auth.GG
-            util.Auth.OnProgramStart.Initialize("", "", "", "");
+            //util.Auth.OnProgramStart.Initialize("", "", "", "");
 
             //Display Login Form
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new Main());
         }
     }
 }
