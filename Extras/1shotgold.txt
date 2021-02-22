@@ -1,0 +1,1232 @@
+using System;
+
+namespace PLBuild
+{
+	internal class address
+	{
+		public static void Setadd()
+		{
+			//1.7.7.xxx DefisPtr = 0xFE2C300
+			memory memory = new memory();
+			address.baseadd = memory.GetBaseAddress("BlackOpsColdWar").ToInt64();
+			memory.AttackProcess("BlackOpsColdWar");
+			address.PlayerBasePtr = memory.GetPointerInt(address.baseadd + 0xFC297B8, new long[1], 1);
+			address.PlayerPedPtr = memory.GetPointerInt(address.baseadd + 264411072L, new long[1], 1);
+			address.ZMXPScaleBase = memory.GetPointerInt(address.baseadd + 0xFA27E30, new long[1], 1);
+			address.ZMBotBasePtr = memory.GetPointerInt(address.baseadd + 264411168L, new long[1], 1);
+			address.jumpheight = memory.GetPointerInt(address.baseadd + 0xFAF6AC8, new long[]
+			{
+				304L
+			}, 1);
+			address.p2PlayerBasePtr = memory.GetPointerInt(address.baseadd + 0xFC297B8, new long[]
+			{
+				0xB830
+			}, 1);
+			address.p3PlayerBasePtr = memory.GetPointerInt(address.baseadd + 264411064L, new long[]
+			{
+				94304L
+			}, 1);
+			address.p4PlayerBasePtr = memory.GetPointerInt(address.baseadd + 264411064L, new long[]
+			{
+				141456L
+			}, 1);
+			address.p2PlayerPedPtr = memory.GetPointerInt(address.baseadd + 264411072L, new long[]
+			{
+				1528L
+			}, 1);
+			address.p3PlayerPedPtr = memory.GetPointerInt(address.baseadd + 264411072L, new long[]
+			{
+				3056L
+			}, 1);
+			address.p4PlayerPedPtr = memory.GetPointerInt(address.baseadd + 264411072L, new long[]
+			{
+				4584L
+			}, 1);
+			address.defispointers = memory.GetPointerInt(address.baseadd + 0x10ED4100, new long[]
+			{
+				139592L
+			}, 1);
+			address.p2defispointers = memory.GetPointerInt(address.baseadd + 0x10ED4100, new long[]
+			{
+				367016L
+			}, 1);
+			address.p3defispointers = memory.GetPointerInt(address.baseadd + 0x10ED4100, new long[]
+			{
+				594440L
+			}, 1);
+			address.p4defispointers = memory.GetPointerInt(address.baseadd + 0x10ED4100, new long[]
+			{
+				821864L
+			}, 1);
+
+			address.cbuf = address.baseadd + 0x113B7FB0;
+			address.sendbuf = address.cbuf - 27L;
+			address.timescale = address.baseadd + 0xEABE2F4;
+			address.zalive = address.ZMXPScaleBase + 60L;
+			address.camoarmegold = address.defispointers + 19L;
+			address.camoarmegold2 = address.defispointers + 20L;
+			address.justomg = address.baseadd + 264574928L;
+			address.justomg2 = address.justomg + 8L;
+			address.justomg3 = address.justomg2 + 8L;
+			address.justomg4 = address.justomg + 40L;
+			address.p1name = address.PlayerBasePtr + address.Name;
+			address.p1money = address.PlayerBasePtr + address.Points;
+			address.ammo1 = address.p1money - 18700L;
+			address.xpos = address.ammo1 - 1520L;
+			address.ypos = address.xpos + 4L;
+			address.zpos = address.xpos + 8L;
+			address.hithealth = address.PlayerPedPtr + address.Health;
+			address.nohit = address.PlayerBasePtr + address.GodMode;
+			address.movespeed = address.PlayerBasePtr + address.RunSpeed;
+			address.currentweapid = address.PlayerBasePtr + address.CurrentUsedWeaponID;
+			address.weapslot1 = address.PlayerBasePtr + address.SetWeaponID;
+			address.weapslot2 = address.PlayerBasePtr + address.SetWeaponID2;
+			address.rapidfire = address.PlayerBasePtr + address.RapidFire1;
+			address.rapidfire2 = address.PlayerBasePtr + address.RapidFire2;
+			address.ammo2 = address.p1money - 18696L;
+			address.ammo3 = address.p1money - 18692L;
+			address.weapcamo1 = address.p1money - 23588L;
+			address.weapcamo2 = address.p1money - 23524L;
+			address.p1perk1 = address.PlayerBasePtr + address.perk1;
+			address.p1perk2 = address.PlayerBasePtr + address.perk2;
+			address.p1perk3 = address.PlayerBasePtr + address.perk3;
+			address.p1perk4 = address.PlayerBasePtr + address.perk4;
+			address.p1perk5 = address.PlayerBasePtr + address.perk5;
+			address.p1perk6 = address.PlayerBasePtr + address.perk6;
+			address.p1perk7 = address.PlayerBasePtr + address.perk7;
+			address.p1perk8 = address.PlayerBasePtr + address.perk8;
+			address.p1perk9 = address.PlayerBasePtr + address.perk9;
+			address.currentkillcount = address.PlayerBasePtr + address.killcount;
+			address.skipround1 = address.PlayerPedPtr + 209880L;
+			address.skipround2 = address.skipround1 + 1528L;
+			address.skipround3 = address.skipround1 + 3056L;
+			address.skipround4 = address.skipround1 + 4584L;
+			address.skipround5 = address.skipround1 + 6112L;
+			address.skipround6 = address.skipround1 + 7640L;
+			address.defis2 = address.defispointers - 9L;
+			address.defis3 = address.defispointers + 9L;
+			address.defis4 = address.defispointers + 56L;
+			address.defis5 = address.defispointers + 73L;
+			address.defis6 = address.defispointers + 31L;
+			address.defis7 = address.defispointers + 45L;
+			address.p2name = address.p2PlayerBasePtr + address.Name;
+			address.p2money = address.p2PlayerBasePtr + address.Points;
+			address.p2ammo1 = address.p2money - 18700L;
+			address.p2xpos = address.p2ammo1 - 1520L;
+			address.p2ypos = address.p2xpos + 4L;
+			address.p2zpos = address.p2xpos + 8L;
+			address.p2hithealth = address.p2PlayerPedPtr + address.Health;
+			address.p2nohit = address.p2PlayerBasePtr + address.GodMode;
+			address.p2movespeed = address.p2PlayerBasePtr + address.RunSpeed;
+			address.p2currentweapid = address.p2PlayerBasePtr + address.CurrentUsedWeaponID;
+			address.p2weapslot1 = address.p2PlayerBasePtr + address.SetWeaponID;
+			address.p2weapslot2 = address.p2PlayerBasePtr + address.SetWeaponID2;
+			address.p2rapidfire = address.p2PlayerBasePtr + address.RapidFire1;
+			address.p2rapidfire2 = address.p2PlayerBasePtr + address.RapidFire2;
+			address.p2ammo2 = address.p2money - 18696L;
+			address.p2ammo3 = address.p2money - 18692L;
+			address.p2weapcamo1 = address.p2money - 23588L;
+			address.p2perk1 = address.p2PlayerBasePtr + address.perk1;
+			address.p2perk2 = address.p2PlayerBasePtr + address.perk2;
+			address.p2perk3 = address.p2PlayerBasePtr + address.perk3;
+			address.p2perk4 = address.p2PlayerBasePtr + address.perk4;
+			address.p2perk5 = address.p2PlayerBasePtr + address.perk5;
+			address.p2perk6 = address.p2PlayerBasePtr + address.perk6;
+			address.p2perk7 = address.p2PlayerBasePtr + address.perk7;
+			address.p2perk8 = address.p2PlayerBasePtr + address.perk8;
+			address.p2perk9 = address.p2PlayerBasePtr + address.perk9;
+			address.p2currentkillcount = address.p2PlayerBasePtr + address.killcount;
+			address.p2camoarmegold = address.p2defispointers + 19L;
+			address.p2camoarmegold2 = address.p2defispointers + 20L;
+			address.p2defis2 = address.p2defispointers - 9L;
+			address.p2defis3 = address.p2defispointers + 9L;
+			address.p2defis4 = address.p2defispointers + 56L;
+			address.p2defis5 = address.p2defispointers + 73L;
+			address.p2defis6 = address.p2defispointers + 31L;
+			address.p2defis7 = address.p2defispointers + 45L;
+			address.p3name = address.p3PlayerBasePtr + address.Name;
+			address.p3money = address.p3PlayerBasePtr + address.Points;
+			address.p3ammo1 = address.p3money - 18700L;
+			address.p3xpos = address.p3ammo1 - 1520L;
+			address.p3ypos = address.p3xpos + 4L;
+			address.p3zpos = address.p3xpos + 8L;
+			address.p3hithealth = address.p3PlayerPedPtr + address.Health;
+			address.p3nohit = address.p3PlayerBasePtr + address.GodMode;
+			address.p3movespeed = address.p3PlayerBasePtr + address.RunSpeed;
+			address.p3currentweapid = address.p3PlayerBasePtr + address.CurrentUsedWeaponID;
+			address.p3weapslot1 = address.p3PlayerBasePtr + address.SetWeaponID;
+			address.p3weapslot2 = address.p3PlayerBasePtr + address.SetWeaponID2;
+			address.p3rapidfire = address.p3PlayerBasePtr + address.RapidFire1;
+			address.p3rapidfire2 = address.p3PlayerBasePtr + address.RapidFire2;
+			address.p3ammo2 = address.p3money - 18696L;
+			address.p3ammo3 = address.p3money - 18692L;
+			address.p3weapcamo1 = address.p3money - 23588L;
+			address.p3perk1 = address.p3PlayerBasePtr + address.perk1;
+			address.p3perk2 = address.p3PlayerBasePtr + address.perk2;
+			address.p3perk3 = address.p3PlayerBasePtr + address.perk3;
+			address.p3perk4 = address.p3PlayerBasePtr + address.perk4;
+			address.p3perk5 = address.p3PlayerBasePtr + address.perk5;
+			address.p3perk6 = address.p3PlayerBasePtr + address.perk6;
+			address.p3perk7 = address.p3PlayerBasePtr + address.perk7;
+			address.p3perk8 = address.p3PlayerBasePtr + address.perk8;
+			address.p3perk9 = address.p3PlayerBasePtr + address.perk9;
+			address.p3currentkillcount = address.p3PlayerBasePtr + address.killcount;
+			address.p3camoarmegold = address.p3defispointers + 19L;
+			address.p3camoarmegold2 = address.p3defispointers + 20L;
+			address.p3defis2 = address.p3defispointers - 9L;
+			address.p3defis3 = address.p3defispointers + 9L;
+			address.p3defis4 = address.p3defispointers + 56L;
+			address.p3defis5 = address.p3defispointers + 73L;
+			address.p3defis6 = address.p3defispointers + 31L;
+			address.p3defis7 = address.p3defispointers + 45L;
+			address.p4name = address.p4PlayerBasePtr + address.Name;
+			address.p4money = address.p4PlayerBasePtr + address.Points;
+			address.p4ammo1 = address.p4money - 18700L;
+			address.p4xpos = address.p4ammo1 - 1520L;
+			address.p4ypos = address.p4xpos + 4L;
+			address.p4zpos = address.p4xpos + 8L;
+			address.p4hithealth = address.p4PlayerPedPtr + address.Health;
+			address.p4nohit = address.p4PlayerBasePtr + address.GodMode;
+			address.p4movespeed = address.p4PlayerBasePtr + address.RunSpeed;
+			address.p4currentweapid = address.p4PlayerBasePtr + address.CurrentUsedWeaponID;
+			address.p4weapslot1 = address.p4PlayerBasePtr + address.SetWeaponID;
+			address.p4weapslot2 = address.p4PlayerBasePtr + address.SetWeaponID2;
+			address.p4rapidfire = address.p4PlayerBasePtr + address.RapidFire1;
+			address.p4rapidfire2 = address.p4PlayerBasePtr + address.RapidFire2;
+			address.p4ammo2 = address.p4money - 18696L;
+			address.p4ammo3 = address.p4money - 18692L;
+			address.p4weapcamo1 = address.p4money - 23588L;
+			address.p4perk1 = address.p4PlayerBasePtr + address.perk1;
+			address.p4perk2 = address.p4PlayerBasePtr + address.perk2;
+			address.p4perk3 = address.p4PlayerBasePtr + address.perk3;
+			address.p4perk4 = address.p4PlayerBasePtr + address.perk4;
+			address.p4perk5 = address.p4PlayerBasePtr + address.perk5;
+			address.p4perk6 = address.p4PlayerBasePtr + address.perk6;
+			address.p4perk7 = address.p4PlayerBasePtr + address.perk7;
+			address.p4perk8 = address.p4PlayerBasePtr + address.perk8;
+			address.p4perk9 = address.p4PlayerBasePtr + address.perk9;
+			address.p4currentkillcount = address.p4PlayerBasePtr + address.killcount;
+			address.p4camoarmegold = address.p4defispointers + 19L;
+			address.p4camoarmegold2 = address.p4defispointers + 20L;
+			address.p4defis2 = address.p4defispointers - 9L;
+			address.p4defis3 = address.p4defispointers + 9L;
+			address.p4defis4 = address.p4defispointers + 56L;
+			address.p4defis5 = address.p4defispointers + 73L;
+			address.p4defis6 = address.p4defispointers + 31L;
+			address.p4defis7 = address.p4defispointers + 45L;
+			for (int i = 0; i < address.camoarme1.Length; i++)
+			{
+				address.camoarme1[i] = address.defispointers + (long)(128 * i);
+			}
+			for (int j = 0; j < address.camoarmegoldall.Length; j++)
+			{
+				address.camoarmegoldall[j] = address.camoarmegold + (long)(128 * j);
+			}
+			for (int k = 0; k < address.camoarmegoldall2.Length; k++)
+			{
+				address.camoarmegoldall2[k] = address.camoarmegold2 + (long)(128 * k);
+			}
+			for (int l = 0; l < address.camoarme2.Length; l++)
+			{
+				address.camoarme2[l] = address.defis2 + (long)(128 * l);
+			}
+			for (int m = 0; m < address.camoarme3.Length; m++)
+			{
+				address.camoarme3[m] = address.defis3 + (long)(128 * m);
+			}
+			for (int n = 0; n < address.camoarme4.Length; n++)
+			{
+				address.camoarme4[n] = address.defis4 + (long)(128 * n);
+			}
+			for (int num = 0; num < address.camoarme5.Length; num++)
+			{
+				address.camoarme5[num] = address.defis5 + (long)(128 * num);
+			}
+			for (int num2 = 0; num2 < address.camoarme6.Length; num2++)
+			{
+				address.camoarme6[num2] = address.defis6 + (long)(128 * num2);
+			}
+			for (int num3 = 0; num3 < address.camoarme7.Length; num3++)
+			{
+				address.camoarme7[num3] = address.defis7 + (long)(128 * num3);
+			}
+			for (int num4 = 0; num4 < address.skip.Length; num4++)
+			{
+				address.skip[num4] = address.skipround4 + address.ZM_Bot_ArraySize_Offset * (long)num4;
+			}
+			for (int num5 = 0; num5 < address.p2camoarme1.Length; num5++)
+			{
+				address.p2camoarme1[num5] = address.p2defispointers + (long)(128 * num5);
+			}
+			for (int num6 = 0; num6 < address.p2camoarmegoldall.Length; num6++)
+			{
+				address.p2camoarmegoldall[num6] = address.p2camoarmegold + (long)(128 * num6);
+			}
+			for (int num7 = 0; num7 < address.p2camoarmegoldall2.Length; num7++)
+			{
+				address.p2camoarmegoldall2[num7] = address.p2camoarmegold2 + (long)(128 * num7);
+			}
+			for (int num8 = 0; num8 < address.p2camoarme2.Length; num8++)
+			{
+				address.p2camoarme2[num8] = address.p2defis2 + (long)(128 * num8);
+			}
+			for (int num9 = 0; num9 < address.p2camoarme3.Length; num9++)
+			{
+				address.p2camoarme3[num9] = address.p2defis3 + (long)(128 * num9);
+			}
+			for (int num10 = 0; num10 < address.p2camoarme4.Length; num10++)
+			{
+				address.p2camoarme4[num10] = address.p2defis4 + (long)(128 * num10);
+			}
+			for (int num11 = 0; num11 < address.p2camoarme5.Length; num11++)
+			{
+				address.p2camoarme5[num11] = address.p2defis5 + (long)(128 * num11);
+			}
+			for (int num12 = 0; num12 < address.p2camoarme6.Length; num12++)
+			{
+				address.p2camoarme6[num12] = address.p2defis6 + (long)(128 * num12);
+			}
+			for (int num13 = 0; num13 < address.p2camoarme7.Length; num13++)
+			{
+				address.p2camoarme7[num13] = address.p2defis7 + (long)(128 * num13);
+			}
+			for (int num14 = 0; num14 < address.p3camoarme1.Length; num14++)
+			{
+				address.p3camoarme1[num14] = address.p3defispointers + (long)(128 * num14);
+			}
+			for (int num15 = 0; num15 < address.p3camoarmegoldall.Length; num15++)
+			{
+				address.p3camoarmegoldall[num15] = address.p3camoarmegold + (long)(128 * num15);
+			}
+			for (int num16 = 0; num16 < address.p3camoarmegoldall2.Length; num16++)
+			{
+				address.p3camoarmegoldall2[num16] = address.p3camoarmegold2 + (long)(128 * num16);
+			}
+			for (int num17 = 0; num17 < address.p3camoarme2.Length; num17++)
+			{
+				address.p3camoarme2[num17] = address.p3defis2 + (long)(128 * num17);
+			}
+			for (int num18 = 0; num18 < address.p3camoarme3.Length; num18++)
+			{
+				address.p3camoarme3[num18] = address.p3defis3 + (long)(128 * num18);
+			}
+			for (int num19 = 0; num19 < address.p3camoarme4.Length; num19++)
+			{
+				address.p3camoarme4[num19] = address.p3defis4 + (long)(128 * num19);
+			}
+			for (int num20 = 0; num20 < address.p3camoarme5.Length; num20++)
+			{
+				address.p3camoarme5[num20] = address.p3defis5 + (long)(128 * num20);
+			}
+			for (int num21 = 0; num21 < address.p3camoarme6.Length; num21++)
+			{
+				address.p3camoarme6[num21] = address.p3defis6 + (long)(128 * num21);
+			}
+			for (int num22 = 0; num22 < address.p3camoarme7.Length; num22++)
+			{
+				address.p3camoarme7[num22] = address.p3defis7 + (long)(128 * num22);
+			}
+			for (int num23 = 0; num23 < address.p4camoarme1.Length; num23++)
+			{
+				address.p4camoarme1[num23] = address.p4defispointers + (long)(128 * num23);
+			}
+			for (int num24 = 0; num24 < address.p4camoarmegoldall.Length; num24++)
+			{
+				address.p4camoarmegoldall[num24] = address.p4camoarmegold + (long)(128 * num24);
+			}
+			for (int num25 = 0; num25 < address.p4camoarmegoldall2.Length; num25++)
+			{
+				address.p4camoarmegoldall2[num25] = address.p4camoarmegold2 + (long)(128 * num25);
+			}
+			for (int num26 = 0; num26 < address.p4camoarme2.Length; num26++)
+			{
+				address.p4camoarme2[num26] = address.p4defis2 + (long)(128 * num26);
+			}
+			for (int num27 = 0; num27 < address.p4camoarme3.Length; num27++)
+			{
+				address.p4camoarme3[num27] = address.p4defis3 + (long)(128 * num27);
+			}
+			for (int num28 = 0; num28 < address.p4camoarme4.Length; num28++)
+			{
+				address.p4camoarme4[num28] = address.p4defis4 + (long)(128 * num28);
+			}
+			for (int num29 = 0; num29 < address.p4camoarme5.Length; num29++)
+			{
+				address.p4camoarme5[num29] = address.p4defis5 + (long)(128 * num29);
+			}
+			for (int num30 = 0; num30 < address.p4camoarme6.Length; num30++)
+			{
+				address.p4camoarme6[num30] = address.p4defis6 + (long)(128 * num30);
+			}
+			for (int num31 = 0; num31 < address.p4camoarme7.Length; num31++)
+			{
+				address.p4camoarme7[num31] = address.p4defis7 + (long)(128 * num31);
+			}
+			address.zhealth1 = address.hithealth + 209336L;
+			address.zhealth2 = address.zhealth1 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth3 = address.zhealth2 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth4 = address.zhealth3 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth5 = address.zhealth4 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth6 = address.zhealth5 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth7 = address.zhealth6 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth8 = address.zhealth7 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth9 = address.zhealth8 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth10 = address.zhealth9 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth11 = address.zhealth10 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth12 = address.zhealth11 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth13 = address.zhealth12 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth14 = address.zhealth13 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth15 = address.zhealth14 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth16 = address.zhealth15 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth17 = address.zhealth16 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth18 = address.zhealth17 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth19 = address.zhealth18 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth20 = address.zhealth19 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth21 = address.zhealth20 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth22 = address.zhealth21 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth23 = address.zhealth22 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth24 = address.zhealth23 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth25 = address.zhealth24 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth26 = address.zhealth25 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth27 = address.zhealth26 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth28 = address.zhealth27 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth29 = address.zhealth28 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth30 = address.zhealth29 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth31 = address.zhealth30 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth32 = address.zhealth31 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth33 = address.zhealth32 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth34 = address.zhealth33 + address.ZM_Bot_ArraySize_Offset;
+			address.zhealth35 = address.zhealth34 + address.ZM_Bot_ArraySize_Offset;
+			for (int num32 = 0; num32 < address.vz.Length; num32++)
+			{
+				address.vz[num32] = address.zhealth1 + address.ZM_Bot_ArraySize_Offset * (long)num32;
+			}
+			for (int num33 = 0; num33 < address.X_z.Length; num33++)
+			{
+				address.X_z[num33] = address.vz[0] - 196L + address.ZM_Bot_ArraySize_Offset * (long)num33;
+				address.Y_z[num33] = address.X_z[num33] + 4L;
+				address.Z_z[num33] = address.X_z[num33] + 8L;
+			}
+		}
+
+		// Token: 0x0400000A RID: 10
+		public static long baseadd = 0L;
+
+		// Token: 0x0400000B RID: 11
+		public static long timescale;
+
+		// Token: 0x0400000C RID: 12
+		public static long PlayerBasePtr;
+
+		// Token: 0x0400000D RID: 13
+		public static long PlayerPedPtr;
+
+		// Token: 0x0400000E RID: 14
+		public static long ZMXPScaleBase;
+
+		// Token: 0x0400000F RID: 15
+		public static long ZMBotBasePtr;
+
+		// Token: 0x04000010 RID: 16
+		public static long jumpheight;
+
+		// Token: 0x04000011 RID: 17
+		public static long p2PlayerBasePtr;
+
+		// Token: 0x04000012 RID: 18
+		public static long p3PlayerBasePtr;
+
+		// Token: 0x04000013 RID: 19
+		public static long p4PlayerBasePtr;
+
+		// Token: 0x04000014 RID: 20
+		public static long p2PlayerPedPtr;
+
+		// Token: 0x04000015 RID: 21
+		public static long p3PlayerPedPtr;
+
+		// Token: 0x04000016 RID: 22
+		public static long p4PlayerPedPtr;
+
+		// Token: 0x04000017 RID: 23
+		public static long skipround1;
+
+		// Token: 0x04000018 RID: 24
+		public static long skipround2;
+
+		// Token: 0x04000019 RID: 25
+		public static long skipround3;
+
+		// Token: 0x0400001A RID: 26
+		public static long skipround4;
+
+		// Token: 0x0400001B RID: 27
+		public static long skipround5;
+
+		// Token: 0x0400001C RID: 28
+		public static long skipround6;
+
+		// Token: 0x0400001D RID: 29
+		public static long defispointers;
+
+		// Token: 0x0400001E RID: 30
+		public static long p2defispointers;
+
+		// Token: 0x0400001F RID: 31
+		public static long p3defispointers;
+
+		// Token: 0x04000020 RID: 32
+		public static long p4defispointers;
+
+		// Token: 0x04000021 RID: 33
+		public static long zalive;
+
+		// Token: 0x04000022 RID: 34
+		public static long camoarmegold;
+
+		// Token: 0x04000023 RID: 35
+		public static long camoarmegold2;
+
+		// Token: 0x04000024 RID: 36
+		public static long cbuf;
+
+		// Token: 0x04000025 RID: 37
+		public static long sendbuf;
+
+		// Token: 0x04000026 RID: 38
+		public static long defis2;
+
+		// Token: 0x04000027 RID: 39
+		public static long defis3;
+
+		// Token: 0x04000028 RID: 40
+		public static long defis4;
+
+		// Token: 0x04000029 RID: 41
+		public static long defis5;
+
+		// Token: 0x0400002A RID: 42
+		public static long defis6;
+
+		// Token: 0x0400002B RID: 43
+		public static long defis7;
+
+		// Token: 0x0400002C RID: 44
+		public static long PC_ArraySize_Offset = 0xB830;
+
+		// Token: 0x0400002D RID: 45
+		public static long CurrentUsedWeaponID = 0x28;
+
+		// Token: 0x0400002E RID: 46
+		public static long SetWeaponID = 0xB0;
+
+		// Token: 0x0400002F RID: 47
+		public static long SetWeaponID2 = 240L;
+
+		// Token: 0x04000030 RID: 48
+		public static long InfraredVision = 0xE66;
+
+		// Token: 0x04000031 RID: 49
+		public static long GodMode = 0xE67;
+
+		// Token: 0x04000032 RID: 50
+		public static long RapidFire1 = 0xE6C;
+
+		// Token: 0x04000033 RID: 51
+		public static long RapidFire2 = 0xE80;
+
+		// Token: 0x04000034 RID: 52
+		public static long MaxAmmo = 0x1360;
+
+		// Token: 0x04000035 RID: 53
+		public static long Ammo = 0x13D4;
+
+		// Token: 0x04000036 RID: 54
+		public static long Points = 0x5CE4;
+
+		// Token: 0x04000037 RID: 55
+		public static long Name = 0x5BDA;
+
+		// Token: 0x04000038 RID: 56
+		public static long RunSpeed = 0x5C30;
+
+		// Token: 0x04000039 RID: 57
+		public static long ClanTags = 0x605C;
+
+		// Token: 0x0400003A RID: 58
+		public static long killcount = 23784L;
+
+		// Token: 0x0400003B RID: 59
+		public static long perk1 = 4272L;
+
+		// Token: 0x0400003C RID: 60
+		public static long perk2 = 4304L;
+
+		// Token: 0x0400003D RID: 61
+		public static long perk3 = 4300L;
+
+		// Token: 0x0400003E RID: 62
+		public static long perk4 = 4316L;
+
+		// Token: 0x0400003F RID: 63
+		public static long perk5 = 4328L;
+
+		// Token: 0x04000040 RID: 64
+		public static long perk6 = 4292L;
+
+		// Token: 0x04000041 RID: 65
+		public static long perk7 = 4296L;
+
+		// Token: 0x04000042 RID: 66
+		public static long perk8 = 4308L;
+
+		// Token: 0x04000043 RID: 67
+		public static long perk9 = 4312L;
+
+		// Token: 0x04000044 RID: 68
+		public static long PP_ArraySize_Offset = 0x5F8;
+
+		// Token: 0x04000045 RID: 69
+		public static long Health = 0x398;
+
+		// Token: 0x04000046 RID: 70
+		public static long ZM_Bot_ArraySize_Offset = 1528L;
+
+		// Token: 0x04000047 RID: 71
+		public static long ZM_Bot_Health = 0x39C;
+
+		// Token: 0x04000048 RID: 72
+		public static long justomg;
+
+		// Token: 0x04000049 RID: 73
+		public static long justomg2;
+
+		// Token: 0x0400004A RID: 74
+		public static long justomg3;
+
+		// Token: 0x0400004B RID: 75
+		public static long justomg4;
+
+		// Token: 0x0400004C RID: 76
+		public static long p1name;
+
+		// Token: 0x0400004D RID: 77
+		public static long p1money;
+
+		// Token: 0x0400004E RID: 78
+		public static long xpos;
+
+		// Token: 0x0400004F RID: 79
+		public static long ypos;
+
+		// Token: 0x04000050 RID: 80
+		public static long zpos;
+
+		// Token: 0x04000051 RID: 81
+		public static long hithealth;
+
+		// Token: 0x04000052 RID: 82
+		public static long nohit;
+
+		// Token: 0x04000053 RID: 83
+		public static long movespeed;
+
+		// Token: 0x04000054 RID: 84
+		public static long currentweapid;
+
+		// Token: 0x04000055 RID: 85
+		public static long weapslot1;
+
+		// Token: 0x04000056 RID: 86
+		public static long weapslot2;
+
+		// Token: 0x04000057 RID: 87
+		public static long rapidfire;
+
+		// Token: 0x04000058 RID: 88
+		public static long rapidfire2;
+
+		// Token: 0x04000059 RID: 89
+		public static long ammo1;
+
+		// Token: 0x0400005A RID: 90
+		public static long ammo2;
+
+		// Token: 0x0400005B RID: 91
+		public static long ammo3;
+
+		// Token: 0x0400005C RID: 92
+		public static long weapcamo1;
+
+		// Token: 0x0400005D RID: 93
+		public static long weapcamo2;
+
+		// Token: 0x0400005E RID: 94
+		public static long p1perk1;
+
+		// Token: 0x0400005F RID: 95
+		public static long p1perk2;
+
+		// Token: 0x04000060 RID: 96
+		public static long p1perk3;
+
+		// Token: 0x04000061 RID: 97
+		public static long p1perk4;
+
+		// Token: 0x04000062 RID: 98
+		public static long p1perk5;
+
+		// Token: 0x04000063 RID: 99
+		public static long p1perk6;
+
+		// Token: 0x04000064 RID: 100
+		public static long p1perk7;
+
+		// Token: 0x04000065 RID: 101
+		public static long p1perk8;
+
+		// Token: 0x04000066 RID: 102
+		public static long p1perk9;
+
+		// Token: 0x04000067 RID: 103
+		public static long currentkillcount;
+
+		// Token: 0x04000068 RID: 104
+		public static long p2name;
+
+		// Token: 0x04000069 RID: 105
+		public static long p2money;
+
+		// Token: 0x0400006A RID: 106
+		public static long p2xpos;
+
+		// Token: 0x0400006B RID: 107
+		public static long p2ypos;
+
+		// Token: 0x0400006C RID: 108
+		public static long p2zpos;
+
+		// Token: 0x0400006D RID: 109
+		public static long p2hithealth;
+
+		// Token: 0x0400006E RID: 110
+		public static long p2nohit;
+
+		// Token: 0x0400006F RID: 111
+		public static long p2movespeed;
+
+		// Token: 0x04000070 RID: 112
+		public static long p2currentweapid;
+
+		// Token: 0x04000071 RID: 113
+		public static long p2weapslot1;
+
+		// Token: 0x04000072 RID: 114
+		public static long p2weapslot2;
+
+		// Token: 0x04000073 RID: 115
+		public static long p2rapidfire;
+
+		// Token: 0x04000074 RID: 116
+		public static long p2rapidfire2;
+
+		// Token: 0x04000075 RID: 117
+		public static long p2ammo1;
+
+		// Token: 0x04000076 RID: 118
+		public static long p2ammo2;
+
+		// Token: 0x04000077 RID: 119
+		public static long p2ammo3;
+
+		// Token: 0x04000078 RID: 120
+		public static long p2weapcamo1;
+
+		// Token: 0x04000079 RID: 121
+		public static long p2perk1;
+
+		// Token: 0x0400007A RID: 122
+		public static long p2perk2;
+
+		// Token: 0x0400007B RID: 123
+		public static long p2perk3;
+
+		// Token: 0x0400007C RID: 124
+		public static long p2perk4;
+
+		// Token: 0x0400007D RID: 125
+		public static long p2perk5;
+
+		// Token: 0x0400007E RID: 126
+		public static long p2perk6;
+
+		// Token: 0x0400007F RID: 127
+		public static long p2perk7;
+
+		// Token: 0x04000080 RID: 128
+		public static long p2perk8;
+
+		// Token: 0x04000081 RID: 129
+		public static long p2perk9;
+
+		// Token: 0x04000082 RID: 130
+		public static long p2currentkillcount;
+
+		// Token: 0x04000083 RID: 131
+		public static long p2camoarmegold;
+
+		// Token: 0x04000084 RID: 132
+		public static long p2camoarmegold2;
+
+		// Token: 0x04000085 RID: 133
+		public static long p2defis2;
+
+		// Token: 0x04000086 RID: 134
+		public static long p2defis3;
+
+		// Token: 0x04000087 RID: 135
+		public static long p2defis4;
+
+		// Token: 0x04000088 RID: 136
+		public static long p2defis5;
+
+		// Token: 0x04000089 RID: 137
+		public static long p2defis6;
+
+		// Token: 0x0400008A RID: 138
+		public static long p2defis7;
+
+		// Token: 0x0400008B RID: 139
+		public static long p3name;
+
+		// Token: 0x0400008C RID: 140
+		public static long p3money;
+
+		// Token: 0x0400008D RID: 141
+		public static long p3xpos;
+
+		// Token: 0x0400008E RID: 142
+		public static long p3ypos;
+
+		// Token: 0x0400008F RID: 143
+		public static long p3zpos;
+
+		// Token: 0x04000090 RID: 144
+		public static long p3hithealth;
+
+		// Token: 0x04000091 RID: 145
+		public static long p3nohit;
+
+		// Token: 0x04000092 RID: 146
+		public static long p3movespeed;
+
+		// Token: 0x04000093 RID: 147
+		public static long p3currentweapid;
+
+		// Token: 0x04000094 RID: 148
+		public static long p3weapslot1;
+
+		// Token: 0x04000095 RID: 149
+		public static long p3weapslot2;
+
+		// Token: 0x04000096 RID: 150
+		public static long p3rapidfire;
+
+		// Token: 0x04000097 RID: 151
+		public static long p3rapidfire2;
+
+		// Token: 0x04000098 RID: 152
+		public static long p3ammo1;
+
+		// Token: 0x04000099 RID: 153
+		public static long p3ammo2;
+
+		// Token: 0x0400009A RID: 154
+		public static long p3ammo3;
+
+		// Token: 0x0400009B RID: 155
+		public static long p3weapcamo1;
+
+		// Token: 0x0400009C RID: 156
+		public static long p3perk1;
+
+		// Token: 0x0400009D RID: 157
+		public static long p3perk2;
+
+		// Token: 0x0400009E RID: 158
+		public static long p3perk3;
+
+		// Token: 0x0400009F RID: 159
+		public static long p3perk4;
+
+		// Token: 0x040000A0 RID: 160
+		public static long p3perk5;
+
+		// Token: 0x040000A1 RID: 161
+		public static long p3perk6;
+
+		// Token: 0x040000A2 RID: 162
+		public static long p3perk7;
+
+		// Token: 0x040000A3 RID: 163
+		public static long p3perk8;
+
+		// Token: 0x040000A4 RID: 164
+		public static long p3perk9;
+
+		// Token: 0x040000A5 RID: 165
+		public static long p3currentkillcount;
+
+		// Token: 0x040000A6 RID: 166
+		public static long p3camoarmegold;
+
+		// Token: 0x040000A7 RID: 167
+		public static long p3camoarmegold2;
+
+		// Token: 0x040000A8 RID: 168
+		public static long p3defis2;
+
+		// Token: 0x040000A9 RID: 169
+		public static long p3defis3;
+
+		// Token: 0x040000AA RID: 170
+		public static long p3defis4;
+
+		// Token: 0x040000AB RID: 171
+		public static long p3defis5;
+
+		// Token: 0x040000AC RID: 172
+		public static long p3defis6;
+
+		// Token: 0x040000AD RID: 173
+		public static long p3defis7;
+
+		// Token: 0x040000AE RID: 174
+		public static long p4name;
+
+		// Token: 0x040000AF RID: 175
+		public static long p4money;
+
+		// Token: 0x040000B0 RID: 176
+		public static long p4xpos;
+
+		// Token: 0x040000B1 RID: 177
+		public static long p4ypos;
+
+		// Token: 0x040000B2 RID: 178
+		public static long p4zpos;
+
+		// Token: 0x040000B3 RID: 179
+		public static long p4hithealth;
+
+		// Token: 0x040000B4 RID: 180
+		public static long p4nohit;
+
+		// Token: 0x040000B5 RID: 181
+		public static long p4movespeed;
+
+		// Token: 0x040000B6 RID: 182
+		public static long p4currentweapid;
+
+		// Token: 0x040000B7 RID: 183
+		public static long p4weapslot1;
+
+		// Token: 0x040000B8 RID: 184
+		public static long p4weapslot2;
+
+		// Token: 0x040000B9 RID: 185
+		public static long p4rapidfire;
+
+		// Token: 0x040000BA RID: 186
+		public static long p4rapidfire2;
+
+		// Token: 0x040000BB RID: 187
+		public static long p4ammo1;
+
+		// Token: 0x040000BC RID: 188
+		public static long p4ammo2;
+
+		// Token: 0x040000BD RID: 189
+		public static long p4ammo3;
+
+		// Token: 0x040000BE RID: 190
+		public static long p4weapcamo1;
+
+		// Token: 0x040000BF RID: 191
+		public static long p4perk1;
+
+		// Token: 0x040000C0 RID: 192
+		public static long p4perk2;
+
+		// Token: 0x040000C1 RID: 193
+		public static long p4perk3;
+
+		// Token: 0x040000C2 RID: 194
+		public static long p4perk4;
+
+		// Token: 0x040000C3 RID: 195
+		public static long p4perk5;
+
+		// Token: 0x040000C4 RID: 196
+		public static long p4perk6;
+
+		// Token: 0x040000C5 RID: 197
+		public static long p4perk7;
+
+		// Token: 0x040000C6 RID: 198
+		public static long p4perk8;
+
+		// Token: 0x040000C7 RID: 199
+		public static long p4perk9;
+
+		// Token: 0x040000C8 RID: 200
+		public static long p4currentkillcount;
+
+		// Token: 0x040000C9 RID: 201
+		public static long p4camoarmegold;
+
+		// Token: 0x040000CA RID: 202
+		public static long p4camoarmegold2;
+
+		// Token: 0x040000CB RID: 203
+		public static long p4defis2;
+
+		// Token: 0x040000CC RID: 204
+		public static long p4defis3;
+
+		// Token: 0x040000CD RID: 205
+		public static long p4defis4;
+
+		// Token: 0x040000CE RID: 206
+		public static long p4defis5;
+
+		// Token: 0x040000CF RID: 207
+		public static long p4defis6;
+
+		// Token: 0x040000D0 RID: 208
+		public static long p4defis7;
+
+		// Token: 0x040000D1 RID: 209
+		public static long zhealth1;
+
+		// Token: 0x040000D2 RID: 210
+		public static long zhealth2;
+
+		// Token: 0x040000D3 RID: 211
+		public static long zhealth3;
+
+		// Token: 0x040000D4 RID: 212
+		public static long zhealth4;
+
+		// Token: 0x040000D5 RID: 213
+		public static long zhealth5;
+
+		// Token: 0x040000D6 RID: 214
+		public static long zhealth6;
+
+		// Token: 0x040000D7 RID: 215
+		public static long zhealth7;
+
+		// Token: 0x040000D8 RID: 216
+		public static long zhealth8;
+
+		// Token: 0x040000D9 RID: 217
+		public static long zhealth9;
+
+		// Token: 0x040000DA RID: 218
+		public static long zhealth10;
+
+		// Token: 0x040000DB RID: 219
+		public static long zhealth11;
+
+		// Token: 0x040000DC RID: 220
+		public static long zhealth12;
+
+		// Token: 0x040000DD RID: 221
+		public static long zhealth13;
+
+		// Token: 0x040000DE RID: 222
+		public static long zhealth14;
+
+		// Token: 0x040000DF RID: 223
+		public static long zhealth15;
+
+		// Token: 0x040000E0 RID: 224
+		public static long zhealth16;
+
+		// Token: 0x040000E1 RID: 225
+		public static long zhealth17;
+
+		// Token: 0x040000E2 RID: 226
+		public static long zhealth18;
+
+		// Token: 0x040000E3 RID: 227
+		public static long zhealth19;
+
+		// Token: 0x040000E4 RID: 228
+		public static long zhealth20;
+
+		// Token: 0x040000E5 RID: 229
+		public static long zhealth21;
+
+		// Token: 0x040000E6 RID: 230
+		public static long zhealth22;
+
+		// Token: 0x040000E7 RID: 231
+		public static long zhealth23;
+
+		// Token: 0x040000E8 RID: 232
+		public static long zhealth24;
+
+		// Token: 0x040000E9 RID: 233
+		public static long zhealth25;
+
+		// Token: 0x040000EA RID: 234
+		public static long zhealth26;
+
+		// Token: 0x040000EB RID: 235
+		public static long zhealth27;
+
+		// Token: 0x040000EC RID: 236
+		public static long zhealth28;
+
+		// Token: 0x040000ED RID: 237
+		public static long zhealth29;
+
+		// Token: 0x040000EE RID: 238
+		public static long zhealth30;
+
+		// Token: 0x040000EF RID: 239
+		public static long zhealth31;
+
+		// Token: 0x040000F0 RID: 240
+		public static long zhealth32;
+
+		// Token: 0x040000F1 RID: 241
+		public static long zhealth33;
+
+		// Token: 0x040000F2 RID: 242
+		public static long zhealth34;
+
+		// Token: 0x040000F3 RID: 243
+		public static long zhealth35;
+
+		public static long goldassult = 0x1ed31f7d371;
+
+		public static long goldmelee;
+
+		public static long goldlaunchers;
+
+		public static long goldlmgs;
+
+		public static long goldpistols;
+
+		public static long goldshotguns;
+
+		public static long goldsmgs;
+
+		public static long goldtacs;
+
+		public static long diamondassult;
+
+		public static long diamondmelee;
+
+		public static long diamondlaunchers;
+
+		public static long diamondlmgs;
+
+		public static long diamondpistols;
+
+		public static long diamondshotguns;
+
+		public static long diamondsmgs;
+
+		public static long diamondtacs;
+
+		public static long diamondall;
+
+		public static long darkmatter;
+
+		public static long[] X_z = new long[50];
+
+		public static long[] Y_z = new long[50];
+
+		public static long[] Z_z = new long[50];
+
+		public static long[] vz = new long[50];
+
+		public static long[] skip = new long[50];
+
+		public static long[] camoarme1 = new long[140];
+
+		public static long[] camoarme2 = new long[140];
+
+		public static long[] camoarme3 = new long[140];
+
+		public static long[] camoarme4 = new long[140];
+
+		public static long[] camoarme5 = new long[140];
+
+		public static long[] camoarme6 = new long[140];
+
+		public static long[] camoarme7 = new long[140];
+
+		public static long[] camoarmegoldall = new long[140];
+
+		public static long[] camoarmegoldall2 = new long[140];
+
+		public static long[] p2camoarme1 = new long[140];
+
+		public static long[] p2camoarme2 = new long[140];
+
+		public static long[] p2camoarme3 = new long[140];
+
+		public static long[] p2camoarme4 = new long[140];
+
+		public static long[] p2camoarme5 = new long[140];
+
+		public static long[] p2camoarme6 = new long[140];
+
+		public static long[] p2camoarme7 = new long[140];
+
+		public static long[] p2camoarmegoldall = new long[140];
+
+		public static long[] p2camoarmegoldall2 = new long[140];
+
+		public static long[] p3camoarme1 = new long[140];
+
+		public static long[] p3camoarme2 = new long[140];
+
+		public static long[] p3camoarme3 = new long[140];
+
+		public static long[] p3camoarme4 = new long[140];
+
+		public static long[] p3camoarme5 = new long[140];
+
+		public static long[] p3camoarme6 = new long[140];
+
+		public static long[] p3camoarme7 = new long[140];
+
+		public static long[] p3camoarmegoldall = new long[140];
+
+		public static long[] p3camoarmegoldall2 = new long[140];
+
+		public static long[] p4camoarme1 = new long[140];
+
+		public static long[] p4camoarme2 = new long[140];
+
+		public static long[] p4camoarme3 = new long[140];
+
+		public static long[] p4camoarme4 = new long[140];
+
+		public static long[] p4camoarme5 = new long[140];
+
+		public static long[] p4camoarme6 = new long[140];
+
+		public static long[] p4camoarme7 = new long[140];
+
+		public static long[] p4camoarmegoldall = new long[140];
+
+		public static long[] p4camoarmegoldall2 = new long[140];
+	}
+}

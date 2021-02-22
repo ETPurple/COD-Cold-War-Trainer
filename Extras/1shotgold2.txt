@@ -1,0 +1,177 @@
+        private void p1camo_Tick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < address.camoarme1.Length; i++)
+            {
+                this.m.WriteInt16(address.camoarme1[i], 3100);
+            }
+            for (int j = 0; j < address.camoarme2.Length; j++)
+            {
+                this.m.WriteInt16(address.camoarme2[j], 3100);
+            }
+            for (int k = 0; k < address.camoarme3.Length; k++)
+            {
+                this.m.WriteInt16(address.camoarme3[k], 3100);
+            }
+            for (int l = 0; l < address.camoarme4.Length; l++)
+            {
+                this.m.WriteByte(address.camoarme4[l], 100);
+            }
+            for (int m = 0; m < address.camoarme5.Length; m++)
+            {
+                this.m.WriteByte(address.camoarme5[m], 100);
+            }
+            for (int n = 0; n < address.camoarme6.Length; n++)
+            {
+                this.m.WriteByte(address.camoarme6[n], 100);
+            }
+            for (int num = 0; num < address.camoarme7.Length; num++)
+            {
+                this.m.WriteByte(address.camoarme7[num], 100);
+            }
+            for (int num2 = 0; num2 < address.camoarmegoldall.Length; num2++)
+            {
+                this.m.WriteByte(address.camoarmegoldall[num2], 100);
+            }
+            for (int num3 = 0; num3 < address.camoarmegoldall2.Length; num3++)
+            {
+                this.m.WriteByte(address.camoarmegoldall2[num3], 100);
+            }
+            p1camo.Stop();
+
+        }
+
+        private void p2camo_Tick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < address.p2camoarme1.Length; i++)
+            {
+                this.m.WriteInt16(address.p2camoarme1[i], 2499);
+            }
+            for (int j = 0; j < address.p2camoarme2.Length; j++)
+            {
+                this.m.WriteInt16(address.p2camoarme2[j], 2499);
+            }
+            for (int k = 0; k < address.p2camoarme3.Length; k++)
+            {
+                this.m.WriteInt16(address.p2camoarme3[k], 2499);
+            }
+            for (int l = 0; l < address.p2camoarme4.Length; l++)
+            {
+                this.m.WriteByte(address.p2camoarme4[l], 9);
+            }
+            for (int m = 0; m < address.p2camoarme5.Length; m++)
+            {
+                this.m.WriteByte(address.p2camoarme5[m], 9);
+            }
+            for (int n = 0; n < address.p2camoarme6.Length; n++)
+            {
+                this.m.WriteByte(address.p2camoarme6[n], 24);
+            }
+            for (int num = 0; num < address.p2camoarme7.Length; num++)
+            {
+                this.m.WriteByte(address.p2camoarme7[num], 14);
+            }
+            for (int num2 = 0; num2 < address.p2camoarmegoldall.Length; num2++)
+            {
+                this.m.WriteByte(address.p2camoarmegoldall[num2], 34);
+            }
+            for (int num3 = 0; num3 < address.p2camoarmegoldall2.Length; num3++)
+            {
+                this.m.WriteByte(address.p2camoarmegoldall2[num3], 34);
+            }
+
+            p2camo.Stop();
+        }
+
+        private void p3camo_Tick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < address.p3camoarme1.Length; i++)
+            {
+                this.m.WriteInt16(address.p3camoarme1[i], 2499);
+            }
+            for (int j = 0; j < address.p3camoarme2.Length; j++)
+            {
+                this.m.WriteInt16(address.p3camoarme2[j], 2499);
+            }
+            for (int k = 0; k < address.p3camoarme3.Length; k++)
+            {
+                this.m.WriteInt16(address.p3camoarme3[k], 2499);
+            }
+            for (int l = 0; l < address.p3camoarme4.Length; l++)
+            {
+                this.m.WriteByte(address.p3camoarme4[l], 9);
+            }
+            for (int m = 0; m < address.p3camoarme5.Length; m++)
+            {
+                this.m.WriteByte(address.p3camoarme5[m], 9);
+            }
+            for (int n = 0; n < address.p3camoarme6.Length; n++)
+            {
+                this.m.WriteByte(address.p3camoarme6[n], 24);
+            }
+            for (int num = 0; num < address.p3camoarme7.Length; num++)
+            {
+                this.m.WriteByte(address.p3camoarme7[num], 14);
+            }
+            for (int num2 = 0; num2 < address.p3camoarmegoldall.Length; num2++)
+            {
+                this.m.WriteByte(address.p3camoarmegoldall[num2], 34);
+            }
+            for (int num3 = 0; num3 < address.p3camoarmegoldall2.Length; num3++)
+            {
+                this.m.WriteByte(address.p3camoarmegoldall2[num3], 34);
+            }
+
+            p3camo.Stop();
+        }
+
+        private void p4camo_Tick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < address.p4camoarme1.Length; i++)
+            {
+                this.m.WriteInt16(address.p4camoarme1[i], 2499);
+            }
+            for (int j = 0; j < address.p4camoarme2.Length; j++)
+            {
+                this.m.WriteInt16(address.p4camoarme2[j], 2499);
+            }
+            for (int k = 0; k < address.p4camoarme3.Length; k++)
+            {
+                this.m.WriteInt16(address.p4camoarme3[k], 2499);
+            }
+            for (int l = 0; l < address.p4camoarme4.Length; l++)
+            {
+                this.m.WriteByte(address.p4camoarme4[l], 9);
+            }
+            for (int m = 0; m < address.p4camoarme5.Length; m++)
+            {
+                this.m.WriteByte(address.p4camoarme5[m], 9);
+            }
+            for (int n = 0; n < address.p4camoarme6.Length; n++)
+            {
+                this.m.WriteByte(address.p4camoarme6[n], 24);
+            }
+            for (int num = 0; num < address.p4camoarme7.Length; num++)
+            {
+                this.m.WriteByte(address.p4camoarme7[num], 14);
+            }
+            for (int num2 = 0; num2 < address.p4camoarmegoldall.Length; num2++)
+            {
+                this.m.WriteByte(address.p4camoarmegoldall[num2], 34);
+            }
+            for (int num3 = 0; num3 < address.p4camoarmegoldall2.Length; num3++)
+            {
+                this.m.WriteByte(address.p4camoarmegoldall2[num3], 34);
+            }
+
+            p4camo.Stop();
+        }
+		
+		
+		
+		
+		
+		139592L
+367016L
+594440L
+821864L
+0x10ED4100
