@@ -166,48 +166,35 @@ namespace ___
                     else
                     {
                         IAPI.GodModeOff(IAPI.playerOne);
-
                     }
 
                     if (godModePlayerTwo)
                     {
                         IAPI.GodModeOn(IAPI.playerTwo);
-                        button7.ForeColor = Color.Green;
-                        button7.Text = "God Mode - On";
                     }
                     else
                     {
                         IAPI.GodModeOff(IAPI.playerTwo);
-                        button7.ForeColor = Color.Red;
-                        button7.Text = "God mode - Off";
                     }
 
 
                     if (godModePlayerThree)
                     {
                         IAPI.GodModeOn(IAPI.playerThree);
-                        button12.ForeColor = Color.Green;
-                        button12.Text = "God Mode - On";
                     }
                     else
                     {
                         IAPI.GodModeOff(IAPI.playerThree);
-                        button12.ForeColor = Color.Red;
-                        button12.Text = "God Mode - Off";
                     }
 
 
                     if (godModePlayerFour)
                     {
                         IAPI.GodModeOn(IAPI.playerFour);
-                        button15.ForeColor = Color.Green;
-                        button15.Text = "God Mode - On";
                     }
                     else
                     {
                         IAPI.GodModeOff(IAPI.playerFour);
-                        button15.ForeColor = Color.Red;
-                        button15.Text = "God Mode - Off";
                     }
                     #endregion
 

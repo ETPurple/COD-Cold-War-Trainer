@@ -20,16 +20,16 @@ namespace ___.util
         public static IntPtr PlayerCompPtr, PlayerPedPtr, ZMGlobalBase, ZMBotBase, ZMBotListBase, ZMXPScalePtr;
 
         //public const int PC_ArraySize_Offset = 0xB830;
-        public static IntPtr PlayerBase = (IntPtr)0x10A97348;
-        public static IntPtr ZMXPScaleBase = (IntPtr)0xFC517B0; //ban will happen
-        public static IntPtr TimeScaleBase = (IntPtr)0xECF9C74 + 0x7C; //ban will happen
-        public static IntPtr CMDBufferBase = (IntPtr)0x12469150 + 0x50418;
+        public static IntPtr PlayerBase = (IntPtr)0x10AC72F8;
+        public static IntPtr ZMXPScaleBase = (IntPtr)0x10AEF2F0; //ban will happen
+        public static IntPtr TimeScaleBase = (IntPtr)0xFB85514 + 0x7C; //ban will happen
+        public static IntPtr CMDBufferBase = (IntPtr)0x1232AC50 + 0x50418;
         public static IntPtr XPScaleZM = (IntPtr)0x0; //ban will happen
         public static IntPtr GunXPScaleZM = (IntPtr)0x0; //ban will happen
 
         public static int ZMPlayerArrayOffset = 0xB6E0;
 
-        public static int PC_ArraySize_Offset = 0xB900; // Size of Array between Players Data [IDK if it got changed with 1.7.1 if it got changed, please post the new Offset, i will update them here. dont have the time to check it self]
+        public static int PC_ArraySize_Offset = 0xB940; // Size of Array between Players Data [IDK if it got changed with 1.7.1 if it got changed, please post the new Offset, i will update them here. dont have the time to check it self]
         public static int PC_CurrentUsedWeaponID = 0x28; // Shows Current Used WeaponID (this are only Readable IDs, so change is not working with them on me)
         public static int PC_SetWeaponID = 0xB0; // +(1-5 * 0x40 for WP2 to WP6) Can be used to change a WeaponID correctly from ID 1-300 (! info !, some IDs can result in GameCrashes!).
         public static int PC_InfraredVision = 0xE66; // (byte) On=0x10|Off=0x0
@@ -38,9 +38,9 @@ namespace ___.util
         public static int PC_RapidFire2 = 0xE80; // Freeze to 0 how long you press Left Mouse-Key or Reloading and other stuff is not working.
         public static int PC_MaxAmmo = 0x1360; // +(1-5 * 0x8 for WP1 to WP6) (WP0 Mostly used in MP, ZM first WP is WP1 | WP3-6 Mostly used for Granades and Special) The Game assign the next Free WP Slot so WP1 is MainWeapon, you get a granade, then WP2 is the Granade, you buy a Weapon from wall then this is WP3 and so on..
         public static int PC_Ammo = 0x13D4; // +(1-5 * 0x4 for WP1 to WP6) (WP0 Mostly used in MP, ZM first WP is WP1 | WP3-6 Mostly used for Granades and Special)
-        public static int PC_Points = 0x5D04; // ZM Points / Money
-        public static int PC_Name = 0x5BFA; // Playername
-        public static int PC_RunSpeed = 0x5C30; // (float)
+        public static int PC_Points = 0x5D14; // ZM Points / Money
+        public static int PC_Name = 0x5C0A; // Playername
+        public static int PC_RunSpeed = 0x5D14; // (float)
         public static int PC_ClanTags = 0x605C; // Player Clan/Crew-Tag
         public static int PC_Crit = 0x10CC; //crit
 
