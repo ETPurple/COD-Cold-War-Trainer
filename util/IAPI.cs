@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -150,6 +151,44 @@ namespace ___.util
             byte[] playerAmmo = new byte[4];
             Game.WriteProcessMemory(Offsets.hProc, Offsets.PlayerCompPtr + (Offsets.PC_ArraySize_Offset * clientID) + Offsets.PC_Ammo + (weaponSlot * 0x4), 20, 4, out _);
             return BitConverter.ToInt32(playerAmmo, 0);
+        }
+
+        /// <summary>
+        /// N/A
+        /// </summary>
+        public static void SetPos()
+        {
+            // _memory.WriteBytes(_zmBotListBase + (Offsets.ZombieBotListBase.BotArraySizeOffset * i) + Offsets.ZombieBotListBase.Coords, enemyPosBuffer);
+
+            var newcords = new Vector3(-49392, -20150, 633);
+            var pos2 = new Vector3((float)Math.Round(newcords.X, 2), (float)Math.Round(newcords.Y, 2), (float)Math.Round(newcords.Z, 2));
+
+            Game.WriteProcessMemory(Offsets.hProc, Offsets.PlayerPedPtr + (Offsets.PC_ArraySize_Offset * 0) + Offsets.PP_Coords, pos2, 12, out _);
+            // updates the current playerposition with a Vector3 created from the xyz coordinates
+        }
+
+        /// <summary>
+        /// N/A
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        public static async Task SendCommand(string command)
+        {
+            Game.WriteProcessMemory(Offsets.hProc, Offsets.CMDBufferBase, command + "\0", (uint)command.Length + 2, out _); // Write the command
+            Game.WriteProcessMemory(Offsets.hProc, Offsets.CMDBufferBase - 0x1B, null, 4, out _); // Enter the command
+            await Task.Delay(15);
+            Game.WriteProcessMemory(Offsets.hProc, Offsets.CMDBufferBase, command + "\0", (uint)command.Length + 2, out _); // Clear Input
+
+        }
+
+        public static void EnableThermal(int clientID)
+        {
+            Game.WriteProcessMemory(Offsets.hProc, Offsets.PlayerCompPtr + (Offsets.PC_ArraySize_Offset * clientID) + Offsets.PC_InfraredVision, 0x10, 4, out _);
+        }
+
+        public static void DisableThermal(int clientID)
+        {
+            Game.WriteProcessMemory(Offsets.hProc, Offsets.PlayerCompPtr + (Offsets.PC_ArraySize_Offset * clientID) + Offsets.PC_InfraredVision, 0x0, 4, out _);
         }
     }
 }

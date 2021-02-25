@@ -137,6 +137,7 @@ namespace ___
                     label4.Text = string.Format("Y: {0}", currentPlayerPos.Y.ToString());
                     label5.Text = string.Format("Z: {0}", currentPlayerPos.Z.ToString());
 
+                    
 
 
                     #region Update Player Names
@@ -601,14 +602,11 @@ namespace ___
             Log("Test Message", Color.Aqua);
         }
 
-        private void button26_Click(object sender, EventArgs e)
+        private async void button26_Click(object sender, EventArgs e)
         {
-            Vector3 test = IAPI.GetPlayerPos();
-            MessageBox.Show(string.Format("X: {0}, Y: {1}, Z: {2}", test.X.ToString(), test.Y.ToString(), test.Z.ToString())); ;
-
-            int test2 = IAPI.GetHP(0);
-            MessageBox.Show(string.Format("HP: {0}", test2.ToString()));
+            
         }
+
 
 
         //better ways to do this but it works.
