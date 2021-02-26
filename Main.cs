@@ -129,7 +129,7 @@ namespace ___
 
 
                     //if ingame ( we need to figure out how to determine if we're ingame or not.
-                    label1.Text = "Zombies Left: " + util.IAPI.GetZombieCount();
+                    //label1.Text = "Zombies Left: " + util.IAPI.GetZombieCount(); //bricked, gone, kaput.
 
                     //We need to update the playerPOS constantly as we move and we can then format the string and provide the POS x,y,z
                     currentPlayerPos = IAPI.GetPlayerPos();
