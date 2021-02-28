@@ -162,9 +162,6 @@ namespace ___.util
             }
             return ptr;
         }
-<<<<<<< HEAD
 
-=======
->>>>>>> parent of a8adfef (More features and cleaning)
     }
 }
