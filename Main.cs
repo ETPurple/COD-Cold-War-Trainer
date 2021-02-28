@@ -29,6 +29,7 @@ namespace ___
         public Vector3 updatedPlayerPos = Vector3.Zero;
         public Single xpModifier = 175.0f;
         public Single gunXpModifier = 175.0f;
+        public bool xpBoost = false;
 
         //God mode Booleans
         public bool godModePlayerOne = false;
@@ -137,7 +138,26 @@ namespace ___
                     label4.Text = string.Format("Y: {0}", currentPlayerPos.Y.ToString());
                     label5.Text = string.Format("Z: {0}", currentPlayerPos.Z.ToString());
 
-                    
+
+                    #region XPboost
+
+                    // xp modifiers
+                    if (xpBoost)
+                    {
+                        // writes the xp modifier values to memory, i guess just a straight up BitConverter.GetBytes could've worked without the creation of the byte buffers
+                        //byte[] tempBuffer1 = new byte[4];
+                        //Buffer.BlockCopy(BitConverter.GetBytes(gunXpModifier), 0, tempBuffer1, 0, 4);
+
+                        
+                        byte[] tempBuffer2 = new byte[4];
+                        Buffer.BlockCopy(BitConverter.GetBytes(5000.0), 0, tempBuffer2, 0, 4);
+
+                        //util.Game.WriteProcessMemory(Offsets.hProc, (IntPtr)(Offsets.baseAddress.ToInt64() + Offsets.ZMXPScaleBase.ToInt64()) + Offsets.XPGun_Offset, tempBuffer1, 4, out _);
+                        util.Game.WriteProcessMemory(Offsets.hProc, (IntPtr)(Offsets.baseAddress.ToInt64() + Offsets.ZMXPScaleBase.ToInt64()) + Offsets.XPUNK02_Offset, tempBuffer2, 4, out _);
+                    }
+                    #endregion
+
+
 
 
                     #region Update Player Names
@@ -326,7 +346,35 @@ namespace ___
         private void Main_Load(object sender, EventArgs e)
         {
             if (!backgroundWorker1.IsBusy) backgroundWorker1.RunWorkerAsync();
+            this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(Main_KeyDown);
 
+        }
+
+        private void Main_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            //toggle xp
+            if (e.KeyCode == Keys.NumPad0)
+            {
+                button26.PerformClick();  // This will call the button1_Click event handler
+            }
+
+
+            //toggle all
+            if (e.KeyCode == Keys.Up)
+            {
+                button4.PerformClick();
+                button5.PerformClick();
+                button6.PerformClick();
+                button2.PerformClick();
+            }
+
+            //toggle tp2c
+            if (e.KeyCode == Keys.Down)
+            {
+                button3.PerformClick();
+            }
         }
 
         public Main()
@@ -602,9 +650,19 @@ namespace ___
             Log("Test Message", Color.Aqua);
         }
 
-        private async void button26_Click(object sender, EventArgs e)
+        private void button26_Click(object sender, EventArgs e)
         {
-            
+            xpBoost = !xpBoost;
+            if (xpBoost)
+            {
+                button26.ForeColor = Color.Green;
+                button26.Text = "XP Boost - On";
+            }
+            else
+            {
+                button26.ForeColor = Color.Red;
+                button26.Text = "XP Boost - Off";
+            }
         }
 
 

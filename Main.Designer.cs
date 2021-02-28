@@ -33,6 +33,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.button26 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -68,12 +74,6 @@
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -147,13 +147,67 @@
             this.tabPage1.Text = "Player - 1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(370, 7);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(66, 13);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Console Log";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(373, 23);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(222, 223);
+            this.richTextBox1.TabIndex = 19;
+            this.richTextBox1.Text = "";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(189, 81);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(17, 13);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Z:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(189, 66);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(17, 13);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Y:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(189, 51);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(17, 13);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "X:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(189, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 13);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Player POS: ";
+            // 
             // button26
             // 
-            this.button26.Location = new System.Drawing.Point(192, 271);
+            this.button26.ForeColor = System.Drawing.Color.Red;
+            this.button26.Location = new System.Drawing.Point(10, 150);
             this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(75, 23);
+            this.button26.Size = new System.Drawing.Size(167, 23);
             this.button26.TabIndex = 14;
-            this.button26.Text = "button26";
+            this.button26.Text = "XPBOOST - Off";
             this.button26.UseVisualStyleBackColor = true;
             this.button26.Click += new System.EventHandler(this.button26_Click);
             // 
@@ -169,7 +223,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(100, 179);
+            this.textBox1.Location = new System.Drawing.Point(98, 208);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(77, 20);
             this.textBox1.TabIndex = 9;
@@ -177,7 +231,7 @@
             // button22
             // 
             this.button22.ForeColor = System.Drawing.Color.Red;
-            this.button22.Location = new System.Drawing.Point(8, 179);
+            this.button22.Location = new System.Drawing.Point(6, 208);
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(86, 23);
             this.button22.TabIndex = 8;
@@ -209,7 +263,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(100, 153);
+            this.textBox4.Location = new System.Drawing.Point(98, 182);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(77, 20);
             this.textBox4.TabIndex = 4;
@@ -217,7 +271,7 @@
             // button16
             // 
             this.button16.ForeColor = System.Drawing.Color.Red;
-            this.button16.Location = new System.Drawing.Point(8, 150);
+            this.button16.Location = new System.Drawing.Point(6, 179);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(86, 23);
             this.button16.TabIndex = 3;
@@ -515,59 +569,6 @@
             this.button15.Text = "God Mode - Off";
             this.button15.UseVisualStyleBackColor = true;
             this.button15.Click += new System.EventHandler(this.button15_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(189, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 13);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Player POS: ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(189, 51);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(17, 13);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "X:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(189, 66);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(17, 13);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Y:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(189, 81);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(17, 13);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Z:";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(373, 23);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(222, 223);
-            this.richTextBox1.TabIndex = 19;
-            this.richTextBox1.Text = "";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(370, 7);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 13);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Console Log";
             // 
             // Main
             // 
