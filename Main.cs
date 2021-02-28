@@ -52,11 +52,6 @@ namespace ___
         public bool zombiesInstaKill = false;
         public bool globalXpBoost = false;
 
-        //Players Names
-        public bool playersNameChecked = false;
-
-        //Player Cords
-        public Vector3 currentPlayerPos = Vector3.Zero;
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -131,6 +126,7 @@ namespace ___
                     //if ingame ( we need to figure out how to determine if we're ingame or not.
                     //label1.Text = "Zombies Left: " + util.IAPI.GetZombieCount(); //bricked, gone, kaput.
 
+<<<<<<< HEAD
                     //We need to update the playerPOS constantly as we move and we can then format the string and provide the POS x,y,z
                     currentPlayerPos = IAPI.GetPlayerPos();
                     label3.Text = string.Format("X: {0}", currentPlayerPos.X.ToString());
@@ -139,63 +135,98 @@ namespace ___
 
                     
 
+=======
+>>>>>>> parent of a8adfef (More features and cleaning)
 
                     #region Update Player Names
 
-                    /* 
-                        - We shouldn't be starting the program until we are ingame so we can assume this boolean will be good enough to obtain and update the players names 1 time.
-                        - This prevents the gui from flashing out of control.
-                    */
-                    if (!playersNameChecked)
-                    {
-                        tabPage1.Text = IAPI.GetName(IAPI.playerOne);
-                        tabPage2.Text = IAPI.GetName(IAPI.playerTwo);
-                        tabPage3.Text = IAPI.GetName(IAPI.playerThree);
-                        tabPage4.Text = IAPI.GetName(IAPI.playerFour);
-                        playersNameChecked = true;
-                    }
+                    tabPage1.Text = IAPI.GetName(0);
+                    tabPage2.Text = IAPI.GetName(1);
+                    tabPage3.Text = IAPI.GetName(2);
+                    tabPage4.Text = IAPI.GetName(3);
+
                     #endregion
 
 
                     #region Godmode
 
                     if (godModePlayerOne)
-                    { 
+                    {
                         IAPI.GodModeOn(IAPI.playerOne);
-
+                        //IAPI.GodModeOn(0);
                     }
                     else
                     {
+<<<<<<< HEAD
                         IAPI.GodModeOff(IAPI.playerOne);
+=======
+                        IAPI.GodModeOff(0);
+>>>>>>> parent of a8adfef (More features and cleaning)
                     }
 
                     if (godModePlayerTwo)
                     {
+<<<<<<< HEAD
                         IAPI.GodModeOn(IAPI.playerTwo);
                     }
                     else
                     {
                         IAPI.GodModeOff(IAPI.playerTwo);
+=======
+                        IAPI.GodModeOn(1);
+                        button7.ForeColor = Color.Green;
+                        button7.Text = "God Mode - On";
+                    }
+                    else
+                    {
+                        IAPI.GodModeOff(1);
+                        button7.ForeColor = Color.Red;
+                        button7.Text = "God mode - Off";
+>>>>>>> parent of a8adfef (More features and cleaning)
                     }
 
 
                     if (godModePlayerThree)
                     {
+<<<<<<< HEAD
                         IAPI.GodModeOn(IAPI.playerThree);
                     }
                     else
                     {
                         IAPI.GodModeOff(IAPI.playerThree);
+=======
+                        IAPI.GodModeOn(2);
+                        button12.ForeColor = Color.Green;
+                        button12.Text = "God Mode - On";
+                    }
+                    else
+                    {
+                        IAPI.GodModeOff(2);
+                        button12.ForeColor = Color.Red;
+                        button12.Text = "God Mode - Off";
+>>>>>>> parent of a8adfef (More features and cleaning)
                     }
 
 
                     if (godModePlayerFour)
                     {
+<<<<<<< HEAD
                         IAPI.GodModeOn(IAPI.playerFour);
                     }
                     else
                     {
                         IAPI.GodModeOff(IAPI.playerFour);
+=======
+                        IAPI.GodModeOn(3);
+                        button15.ForeColor = Color.Green;
+                        button15.Text = "God Mode - On";
+                    }
+                    else
+                    {
+                        IAPI.GodModeOff(3);
+                        button15.ForeColor = Color.Red;
+                        button15.Text = "God Mode - Off";
+>>>>>>> parent of a8adfef (More features and cleaning)
                     }
                     #endregion
 
@@ -203,25 +234,24 @@ namespace ___
 
                     if (uaPlayerOne)
                     {
-                        IAPI.FreezeAmmo(IAPI.playerOne, 50);
-
+                        IAPI.FreezeAmmo(0);
                     }
 
                     if (uaPlayerTwo)
                     {
-                        IAPI.FreezeAmmo(IAPI.playerTwo, 50);
+                        IAPI.FreezeAmmo(1);
                     }
 
 
                     if (uaPlayerThree)
                     {
-                        IAPI.FreezeAmmo(IAPI.playerThree, 50);
+                        IAPI.FreezeAmmo(2);
                     }
 
 
                     if (uaPlayerFour)
                     {
-                        IAPI.FreezeAmmo(IAPI.playerFour, 50);
+                        IAPI.FreezeAmmo(3);
                     }
 
 
@@ -231,25 +261,25 @@ namespace ___
 
                     if (umPlayerOne)
                     {
-                        IAPI.SetMoney(IAPI.playerOne, 100000);
+                        IAPI.SetMoney(0, 100000);
 
                     }
 
                     if (umPlayerTwo)
                     {
-                        IAPI.SetMoney(IAPI.playerTwo, 100000);
+                        IAPI.SetMoney(1, 100000);
                     }
 
 
                     if (umPlayerThree)
                     {
-                        IAPI.SetMoney(IAPI.playerThree, 100000);
+                        IAPI.SetMoney(2, 100000);
                     }
 
 
                     if (umPlayerFour)
                     {
-                        IAPI.SetMoney(IAPI.playerFour, 100000);
+                        IAPI.SetMoney(3, 100000);
                     }
 
 
@@ -312,6 +342,25 @@ namespace ___
                     //         util.Game.WriteProcessMemory(hProc, PlayerCompPtr + PC_InfraredVision, new byte[] { 0x0 }, 1, out _);
                     //    }
 
+
+                    #region XPboost
+
+                    // xp modifiers
+                    if (globalXpBoost)
+                    {
+                        // writes the xp modifier values to memory, i guess just a straight up BitConverter.GetBytes could've worked without the creation of the byte buffers
+                        byte[] tempBuffer1 = new byte[4];
+                        Buffer.BlockCopy(BitConverter.GetBytes(gunXpModifier), 0, tempBuffer1, 0, 4);
+                        byte[] tempBuffer2 = new byte[4];
+                        Buffer.BlockCopy(BitConverter.GetBytes(xpModifier), 0, tempBuffer2, 0, 4);
+
+                        util.Game.WriteProcessMemory(Offsets.hProc, (IntPtr)(Offsets.baseAddress.ToInt64() + Offsets.ZMXPScaleBase.ToInt64()) + Offsets.XPGun_Offset, tempBuffer1, 4, out _);
+                        util.Game.WriteProcessMemory(Offsets.hProc, (IntPtr)(Offsets.baseAddress.ToInt64() + Offsets.ZMXPScaleBase.ToInt64()) + Offsets.XPUNK02_Offset, tempBuffer2, 4, out _);
+                    }
+                    #endregion
+
+
+
                     // updates the lastknownplayerpos variable to the current players position
                     lastKnownPlayerPos = updatedPlayerPos;
                 }
@@ -322,6 +371,14 @@ namespace ___
                 }
             }
         }
+        private void ComboBox1_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            // string key = ((KeyValuePair<string, string>)comboBox1.SelectedItem).Key;
+            // string value = ((KeyValuePair<string, string>)comboBox1.SelectedItem).Value;
+            //  var test = Int64.Parse(value);
+
+            // util.Game.WriteProcessMemory(Offsets.hProc, Offsets.PlayerCompPtr + ( Offsets.PC_ArraySize_Offset * 1 ) + Offsets.PC_SetWeaponID, test, 1, out _);
+        }
 
         private void Main_Load(object sender, EventArgs e)
         {
@@ -331,7 +388,10 @@ namespace ___
 
         public Main()
         {
+
             InitializeComponent();
+            //this.Text = OPSEC.RandomString(15);
+            // this.Update();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -352,6 +412,23 @@ namespace ___
         public double ConvertToRadians(double angle)
         {
             return (Math.PI / 180) * angle;
+        }
+
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //toggle true/false of God mode for PlayerOne
+            godModePlayerOne = !godModePlayerOne;
+            if (godModePlayerOne)
+            {
+                button4.ForeColor = Color.Green;
+                button4.Text = "God Mode - On";
+            }
+            else
+            {
+                button4.ForeColor = Color.Red;
+                button4.Text = "God Mode - Off";
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -467,22 +544,22 @@ namespace ___
 
         private void button16_Click(object sender, EventArgs e)
         {
-            IAPI.SetSpeed(IAPI.playerOne, Convert.ToInt32(textBox4.Text));
+            IAPI.SetSpeed(0, Convert.ToInt32(textBox4.Text));
         }
 
         private void button17_Click(object sender, EventArgs e)
         {
-            IAPI.SetSpeed(IAPI.playerTwo, Convert.ToInt32(textBox5.Text));
+            IAPI.SetSpeed(1, Convert.ToInt32(textBox5.Text));
         }
 
         private void button18_Click(object sender, EventArgs e)
         {
-            IAPI.SetSpeed(IAPI.playerThree, Convert.ToInt32(textBox6.Text));
+            IAPI.SetSpeed(2, Convert.ToInt32(textBox6.Text));
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
-            IAPI.SetSpeed(IAPI.playerFour, Convert.ToInt32(textBox7.Text));
+            IAPI.SetSpeed(3, Convert.ToInt32(textBox7.Text));
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -497,6 +574,21 @@ namespace ___
             {
                 button3.ForeColor = Color.Red;
                 button3.Text = "TP2C - Off";
+            }
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            globalXpBoost = !globalXpBoost;
+            if (globalXpBoost)
+            {
+                button20.ForeColor = Color.Green;
+                button20.Text = "XX Boost - On";
+            }
+            else
+            {
+                button20.ForeColor = Color.Red;
+                button20.Text = "XP Boost - Off";
             }
         }
 
@@ -595,17 +687,151 @@ namespace ___
             util.Game.WriteProcessMemory(Offsets.hProc, Offsets.PlayerCompPtr + (Offsets.PC_ArraySize_Offset * 1) + Offsets.PC_SetWeaponID, textBox2.Text, 1, out _);
         }
 
-       
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+
+        }
+        private void TrackBar1_ValueChanged(object sender, System.EventArgs e)
+        {
+            if (trackBar1.Value == 1)
+            {
+                xpModifier = 10.0f;
+                gunXpModifier = 10.0f;
+                label3.Text = "10x";
+            }
+            else if (trackBar1.Value == 2)
+            {
+                xpModifier = 20.0f;
+                gunXpModifier = 20.0f;
+                label3.Text = "20x";
+            }
+            else if (trackBar1.Value == 3)
+            {
+                xpModifier = 30.0f;
+                gunXpModifier = 30.0f;
+                label3.Text = "30x";
+            }
+            else if (trackBar1.Value == 4)
+            {
+                xpModifier = 40.0f;
+                gunXpModifier = 40.0f;
+                label3.Text = "40x";
+            }
+            else if (trackBar1.Value == 5)
+            {
+                xpModifier = 50.0f;
+                gunXpModifier = 50.0f;
+                label3.Text = "50x";
+            }
+            else if (trackBar1.Value == 6)
+            {
+                xpModifier = 60.0f;
+                gunXpModifier = 60.0f;
+                label3.Text = "60x";
+            }
+            else if (trackBar1.Value == 7)
+            {
+                xpModifier = 70.0f;
+                gunXpModifier = 70.0f;
+                label3.Text = "70x";
+            }
+            else if (trackBar1.Value == 8)
+            {
+                xpModifier = 80.0f;
+                gunXpModifier = 80.0f;
+                label3.Text = "80x";
+            }
+            else if (trackBar1.Value == 9)
+            {
+                xpModifier = 90.0f;
+                gunXpModifier = 90.0f;
+                label3.Text = "90x";
+            }
+            else if (trackBar1.Value == 10)
+            {
+                xpModifier = 100.0f;
+                gunXpModifier = 100.0f;
+                label3.Text = "100x";
+            }
+            else if (trackBar1.Value == 11)
+            {
+                xpModifier = 110.0f;
+                gunXpModifier = 110.0f;
+                label3.Text = "110x";
+            }
+            else if (trackBar1.Value == 12)
+            {
+                xpModifier = 120.0f;
+                gunXpModifier = 120.0f;
+                label3.Text = "120x";
+            }
+            else if (trackBar1.Value == 13)
+            {
+                xpModifier = 130.0f;
+                gunXpModifier = 130.0f;
+                label3.Text = "130x";
+            }
+            else if (trackBar1.Value == 14)
+            {
+                xpModifier = 140.0f;
+                gunXpModifier = 140.0f;
+                label3.Text = "140x";
+            }
+            else if (trackBar1.Value == 15)
+            {
+                xpModifier = 150.0f;
+                gunXpModifier = 150.0f;
+                label3.Text = "150x";
+            }
+            else if (trackBar1.Value == 16)
+            {
+                xpModifier = 160.0f;
+                gunXpModifier = 160.0f;
+                label3.Text = "160x";
+            }
+            else if (trackBar1.Value == 17)
+            {
+                xpModifier = 170.0f;
+                gunXpModifier = 170.0f;
+                label3.Text = "170x";
+            }
+            else if (trackBar1.Value == 18)
+            {
+                xpModifier = 180.0f;
+                gunXpModifier = 180.0f;
+                label3.Text = "180x";
+            }
+            else if (trackBar1.Value == 19)
+            {
+                xpModifier = 190.0f;
+                gunXpModifier = 190.0f;
+                label3.Text = "190x";
+            }
+            else if (trackBar1.Value == 20)
+            {
+                xpModifier = 200.0f;
+                gunXpModifier = 200.0f;
+                label3.Text = "200x";
+            }
+            else
+            {
+                xpModifier = 0.0f;
+                gunXpModifier = 0.0f;
+                label3.Text = "0x";
+            }
+        }
 
         private void button21_Click(object sender, EventArgs e)
         {
-            Log("Test Message", Color.Aqua);
+           Vector3 MyPos = IAPI.GetPlayerPos();
+            MessageBox.Show(MyPos.ToString());
         }
 
         private async void button26_Click(object sender, EventArgs e)
         {
             
         }
+<<<<<<< HEAD
 
 
 
@@ -635,5 +861,7 @@ namespace ___
             }
 
         }
+=======
+>>>>>>> parent of a8adfef (More features and cleaning)
     }
 }
