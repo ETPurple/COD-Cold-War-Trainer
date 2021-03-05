@@ -158,8 +158,6 @@ namespace ___
                     #endregion
 
 
-
-
                     #region Update Player Names
 
                     /* 
@@ -348,6 +346,10 @@ namespace ___
             if (!backgroundWorker1.IsBusy) backgroundWorker1.RunWorkerAsync();
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(Main_KeyDown);
+
+            //Generate a random title for activision fucks StRinGs ArE CoOl
+            this.Text = OPSEC.GenerateTitle();
+            this.Update();
 
         }
 
