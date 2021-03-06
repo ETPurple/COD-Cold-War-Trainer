@@ -20,10 +20,10 @@ namespace ___.util
         public static IntPtr PlayerCompPtr, PlayerPedPtr, ZMGlobalBase, ZMBotBase, ZMBotListBase, ZMXPScalePtr;
 
         //public const int PC_ArraySize_Offset = 0xB830;
-        public static IntPtr PlayerBase = (IntPtr)0x1083F4B8;
-        public static IntPtr ZMXPScaleBase = (IntPtr)0x108674B0; //ban will happen
-        public static IntPtr TimeScaleBase = (IntPtr)0xF8FD6D4 + 0x7C; //ban will happen
-        public static IntPtr CMDBufferBase = (IntPtr)0x120A35C0 + 0x50418;
+        public static IntPtr PlayerBase = (IntPtr)0x10888578;
+        public static IntPtr ZMXPScaleBase = (IntPtr)0x108B0570; //ban will happen
+        public static IntPtr TimeScaleBase = (IntPtr)0xF94C794 + 0x7C; //ban will happen
+        public static IntPtr CMDBufferBase = (IntPtr)0x120ECA40 + 0x50418;
         public static IntPtr XPScaleZM = (IntPtr)0x0; //ban will happen
         public static IntPtr GunXPScaleZM = (IntPtr)0x0; //ban will happen
 
